@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-09-08 03:12:37 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Modele.Adresse" table="ADRESSE" schema="ETEAM8" optimistic-lock="version">
+        <composite-id name="id" class="Modele.AdresseId">
+            <key-property name="codepostal" type="string">
+                <column name="CODEPOSTAL" length="10" />
+            </key-property>
+            <key-property name="numero" type="int">
+                <column name="NUMERO" precision="5" scale="0" />
+            </key-property>
+        </composite-id>
+        <property name="rue" type="string">
+            <column name="RUE" length="20" not-null="true" />
+        </property>
+        <property name="localite" type="string">
+            <column name="LOCALITE" length="20" />
+        </property>
+        <property name="ville" type="string">
+            <column name="VILLE" length="20" />
+        </property>
+        <set name="immeubles" table="IMMEUBLE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CODEPOSTAL" length="10" />
+                <column name="NUMERO" precision="5" scale="0" />
+            </key>
+            <one-to-many class="Modele.Immeuble" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,52 @@
+
+label{
+
+    display: block;
+
+    width: 150px;
+
+    float: left;
+
+}
+form{
+	font-style: italic;
+}
+
+div{
+	display: block;
+	border-color: black;
+	border-width: 1px;
+	border-radius: 10px;
+	border-bottom-style: solid;
+	float: left;
+	width: auto;
+	height: auto;
+	padding: 10px;
+}
+
+body{
+	background: ivory;
+	padding: 400px;
+	padding-top: 150px;
+}
+
+input{
+	border-radius: 3px;
+	border-bottom-style: solid;
+	border-bottom-color: black;
+	border-bottom-width: 4px;
+	border-width: 1px;
+}
+.erreur{
+    color : red;
+}
+.succes{
+    color : green;
+}
+.obligatoire{
+    color : red;
+}
+.h1{
+    text-align: right;
+}
+

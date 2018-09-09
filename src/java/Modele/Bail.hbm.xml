@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-09-08 03:12:37 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Modele.Bail" table="BAIL" schema="ETEAM8" optimistic-lock="version">
+        <composite-id name="id" class="Modele.BailId">
+            <key-property name="immeubleid" type="string">
+                <column name="IMMEUBLEID" length="10" />
+            </key-property>
+            <key-property name="locataireid" type="int">
+                <column name="LOCATAIREID" precision="5" scale="0" />
+            </key-property>
+            <key-property name="dateDebut" type="date">
+                <column name="DATE_DEBUT" length="7" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="locataire" class="Modele.Locataire" update="false" insert="false" fetch="select">
+            <column name="LOCATAIREID" precision="5" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="dateFin" type="date">
+            <column name="DATE_FIN" length="7" />
+        </property>
+        <property name="bienid" type="java.lang.Integer">
+            <column name="BIENID" precision="5" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

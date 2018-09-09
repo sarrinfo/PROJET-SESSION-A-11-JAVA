@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-09-08 03:12:37 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Modele.Images" table="IMAGES" schema="ETEAM8" optimistic-lock="version">
+        <composite-id name="id" class="Modele.ImagesId">
+            <key-property name="immeubleid" type="string">
+                <column name="IMMEUBLEID" length="10" />
+            </key-property>
+            <key-property name="bienid" type="int">
+                <column name="BIENID" precision="5" scale="0" />
+            </key-property>
+            <key-property name="imageid" type="int">
+                <column name="IMAGEID" precision="5" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="immeuble" class="Modele.Immeuble" update="false" insert="false" fetch="select">
+            <column name="IMMEUBLEID" length="10" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title >Valider Formulaire</title>
+        <script type="text/javascript" src="javaScript/script.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/style.css"> 
+    </head>
+
+    <body>
+        <div >
+            <h1> INSCRIPTION </h1> 
+            <form action="ControleurPrincipale?action=inscription" name="Formulaire" onsubmit="return verifForm(this)" method="post">
+                </br>
+                <label>Identifiant :</label> <input type="text" name="email" placeholder="ex :123@yahoo.com" size="30" onblur="verifMail(this)"/>
+                <span class="obligatoire"> *</span>
+                <span id="email"></span>
+                </br></br></br>
+                <label>Mot de passe :</label><input type="password" minlength="8" id="PWD" name="motdepasse" size="30" placeholder="minimum 8 caracteres"onblur="verifPWD(this)" />
+                <span class="obligatoire"> *</span>
+                <span id="motdepasse"></span>
+                </br></br></br>
+                <label>Confirmation mot de passe :</label><input type="password" minlength="8" name="confirmation" size="30" placeholder="Repetez mot de passe"onblur="verifConfirmation(this)" />
+                <span class="obligatoire"> *</span>
+                <span id="confirmation"></span>
+                </br></br></br>
+                <label>Nom : </label><input type="text"   name="nom" placeholder="Votre nom utilisateur" size="30" onblur="verifNom(this)" />
+                <span class="obligatoire"> *</span>
+                <span id="nom"></span>
+                </br></br></br>
+                <label> Soumettre : </label><button type="submit" name="mEnvoyer" value="Envoyer" >Envoyer</button>
+                </br></br></br>
+            </form>	
+        </div>
+    </body>
+</html>
+

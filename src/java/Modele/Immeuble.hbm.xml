@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-09-08 03:12:37 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Modele.Immeuble" table="IMMEUBLE" schema="ETEAM8" optimistic-lock="version">
+        <id name="immeubleid" type="string">
+            <column name="IMMEUBLEID" length="10" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="adresse" class="Modele.Adresse" fetch="select">
+            <column name="CODEPOSTAL" length="10" />
+            <column name="NUMERO" precision="5" scale="0" />
+        </many-to-one>
+        <property name="typeImmeuble" type="string">
+            <column name="TYPE_IMMEUBLE" length="20" />
+        </property>
+        <set name="bienimmobiliers" table="BIENIMMOBILIER" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IMMEUBLEID" length="10" not-null="true" />
+            </key>
+            <one-to-many class="Modele.Bienimmobilier" />
+        </set>
+        <set name="imageses" table="IMAGES" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IMMEUBLEID" length="10" not-null="true" />
+            </key>
+            <one-to-many class="Modele.Images" />
+        </set>
+    </class>
+</hibernate-mapping>

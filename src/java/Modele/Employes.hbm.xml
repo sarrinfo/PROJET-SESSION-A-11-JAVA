@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-09-08 03:12:37 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Modele.Employes" table="EMPLOYES" schema="ETEAM8" optimistic-lock="version">
+        <id name="employeid" type="string">
+            <column name="EMPLOYEID" length="5" />
+            <generator class="assigned" />
+        </id>
+        <property name="nom" type="string">
+            <column name="NOM" length="20" />
+        </property>
+        <property name="prenom" type="string">
+            <column name="PRENOM" length="30" />
+        </property>
+        <property name="departement" type="string">
+            <column name="DEPARTEMENT" length="20" />
+        </property>
+        <property name="fonction" type="string">
+            <column name="FONCTION" length="20" />
+        </property>
+        <property name="nas" type="string">
+            <column name="NAS" length="9" />
+        </property>
+        <set name="visiteses" table="VISITES" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYEID" length="5" />
+            </key>
+            <one-to-many class="Modele.Visites" />
+        </set>
+    </class>
+</hibernate-mapping>
