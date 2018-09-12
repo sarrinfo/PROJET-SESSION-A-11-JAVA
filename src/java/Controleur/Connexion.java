@@ -40,53 +40,7 @@ public class Connexion extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//    /* Affichage de la page de connexion */
-//
-////        this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
-//
-//         /* Préparation de l'objet formulaire */
-//
-//        ConnexionForm form = new ConnexionForm();
-//
-//
-//        /* Traitement de la requête et récupération du bean en résultant */
-//
-//        Utilisateur utilisateur = form.connecterUtilisateur( request );
-//
-//
-//        /* Récupération de la session depuis la requête */
-//
-//        HttpSession session = request.getSession();
-//
-//
-//        /**
-//
-//         * Si aucune erreur de validation n'a eu lieu, alors ajout du bean
-//
-//         * Utilisateur à la session, sinon suppression du bean de la session.
-//
-//         */
-//
-//        if ( form.getErreurs().isEmpty() ) {
-//
-//            session.setAttribute( ATT_SESSION_USER, utilisateur );
-//
-//        } else {
-//
-//            session.setAttribute( ATT_SESSION_USER, null );
-//
-//        }
-//
-//
-//        /* Stockage du formulaire et du bean dans l'objet request */
-//
-//        request.setAttribute( ATT_FORM, form );
-//
-//        request.setAttribute( ATT_USER, utilisateur );
-//
-//         RequestDispatcher disp = request.getRequestDispatcher(VUE);
-//         disp.forward(request, response);
-//       
+     
 
     }
 

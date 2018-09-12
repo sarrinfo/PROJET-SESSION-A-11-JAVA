@@ -6,12 +6,9 @@
 package Controleur;
 
 import DAO.BienImmobilierDAO;
-import DAO.ImmeubleDAO;
 import Modele.Bienimmobilier;
-import Modele.Immeuble;
 import java.io.IOException;
 import static java.lang.Integer.parseInt;
-import java.math.BigDecimal;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
