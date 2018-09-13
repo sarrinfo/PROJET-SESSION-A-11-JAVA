@@ -1,5 +1,5 @@
 package Modele;
-// Generated 2018-09-08 03:12:36 by Hibernate Tools 4.3.1
+// Generated 2018-09-12 22:58:17 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -15,7 +15,7 @@ public class Immeuble  implements java.io.Serializable {
      private Adresse adresse;
      private String typeImmeuble;
      private Set bienimmobiliers = new HashSet(0);
-     private Set imageses = new HashSet(0);
+     private Set images = new HashSet(0);
 
     public Immeuble() {
     }
@@ -24,15 +24,14 @@ public class Immeuble  implements java.io.Serializable {
     public Immeuble(String immeubleid) {
         this.immeubleid = immeubleid;
     }
-    public Immeuble(String immeubleid, Adresse adresse, String typeImmeuble, Set bienimmobiliers, Set imageses) {
+    public Immeuble(String immeubleid, Adresse adresse, String typeImmeuble, Set bienimmobiliers, Set images) {
        this.immeubleid = immeubleid;
        this.adresse = adresse;
        this.typeImmeuble = typeImmeuble;
        this.bienimmobiliers = bienimmobiliers;
-       this.imageses = imageses;
+       this.images = images;
     }
-    
-      public Immeuble(String immeubleid, Adresse adresse, String typeImmeuble) {
+     public Immeuble(String immeubleid, Adresse adresse, String typeImmeuble) {
        this.immeubleid = immeubleid;
        this.adresse = adresse;
        this.typeImmeuble = typeImmeuble;
@@ -66,12 +65,12 @@ public class Immeuble  implements java.io.Serializable {
     public void setBienimmobiliers(Set bienimmobiliers) {
         this.bienimmobiliers = bienimmobiliers;
     }
-    public Set getImageses() {
-        return this.imageses;
+    public Set getImages() {
+        return this.images;
     }
     
-    public void setImageses(Set imageses) {
-        this.imageses = imageses;
+    public void setImages(Set images) {
+        this.images = images;
     }
 
 

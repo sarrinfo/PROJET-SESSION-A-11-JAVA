@@ -6,7 +6,7 @@
 package DAO;
 
 
-import Modele.Images;
+import Modele.Image;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -16,10 +16,10 @@ import org.hibernate.Transaction;
  *
  * @author SARRINFO
  */
-public class ImagesDAO {
+public class ImageDAO {
     static Session session = null;
     
-     public static void insert(Images img) {
+     public static void insert(Image img) {
         session = HibernateUtil.getSessionFactory().openSession();
 
         Transaction tx = session.beginTransaction();
@@ -29,7 +29,7 @@ public class ImagesDAO {
     }
 
 
-    public static void delete(Images img) {
+    public static void delete(Image img) {
         session = HibernateUtil.getSessionFactory().openSession();
 
         Transaction tx = session.beginTransaction();
@@ -40,8 +40,8 @@ public class ImagesDAO {
     
      public static List allImagesBienImmobilier(int no) {
         session = HibernateUtil.getSessionFactory().openSession();
-        Query query = session.createQuery("from Images E where E.BIENID = :no ");
-        List<Images> results = query.list();
+        Query query = session.createQuery("from Image E where E.BIENID = :no ");
+        List<Image> results = query.list();
 
         return  results; 
         }

@@ -1,5 +1,5 @@
 package Modele;
-// Generated 2018-09-08 03:12:36 by Hibernate Tools 4.3.1
+// Generated 2018-09-12 22:58:17 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -32,8 +32,7 @@ public class Adresse  implements java.io.Serializable {
        this.ville = ville;
        this.immeubles = immeubles;
     }
-    
-      public Adresse(AdresseId id, String rue, String localite, String ville) {
+     public Adresse(AdresseId id, String rue, String localite, String ville) {
        this.id = id;
        this.rue = rue;
        this.localite = localite;

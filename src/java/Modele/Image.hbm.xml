@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2018-09-08 03:12:37 by Hibernate Tools 4.3.1 -->
+<!-- Generated 2018-09-12 22:58:19 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="Modele.Images" table="IMAGES" schema="ETEAM8" optimistic-lock="version">
-        <composite-id name="id" class="Modele.ImagesId">
+    <class name="Modele.Image" table="IMAGE" schema="ETEAM8" optimistic-lock="version">
+        <composite-id name="id" class="Modele.ImageId">
             <key-property name="immeubleid" type="string">
                 <column name="IMMEUBLEID" length="10" />
             </key-property>
@@ -16,6 +16,10 @@
             </key-property>
         </composite-id>
         <many-to-one name="immeuble" class="Modele.Immeuble" update="false" insert="false" fetch="select">
+            <column name="IMMEUBLEID" length="10" not-null="true" />
+        </many-to-one>
+        <many-to-one name="bienimmobilier" class="Modele.Bienimmobilier" update="false" insert="false" fetch="select">
+            <column name="BIENID" precision="5" scale="0" not-null="true" />
             <column name="IMMEUBLEID" length="10" not-null="true" />
         </many-to-one>
     </class>
