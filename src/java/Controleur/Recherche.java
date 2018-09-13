@@ -5,10 +5,6 @@
  */
 package Controleur;
 
-import DAO.BienImmobilierDAO;
-import Modele.Bienimmobilier;
-import java.io.IOException;
-import static java.lang.Integer.parseInt;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
