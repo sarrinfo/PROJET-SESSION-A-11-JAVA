@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2018-09-08 03:12:37 by Hibernate Tools 4.3.1 -->
+<!-- Generated 2018-09-12 22:58:19 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="Modele.Clients" table="CLIENTS" schema="ETEAM8" optimistic-lock="version">
+    <class name="Modele.Client" table="CLIENT" schema="ETEAM8" optimistic-lock="version">
         <id name="clientid" type="string">
             <column name="CLIENTID" length="10" />
             <generator class="assigned" />
@@ -20,11 +20,11 @@
         <property name="courriel" type="string">
             <column name="COURRIEL" length="60" />
         </property>
-        <set name="visiteses" table="VISITES" inverse="true" lazy="true" fetch="select">
+        <set name="visites" table="VISITE" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="CLIENTID" length="10" />
             </key>
-            <one-to-many class="Modele.Visites" />
+            <one-to-many class="Modele.Visite" />
         </set>
     </class>
 </hibernate-mapping>

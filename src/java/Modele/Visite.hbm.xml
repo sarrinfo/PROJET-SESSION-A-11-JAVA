@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-09-12 22:58:19 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Modele.Visite" table="VISITE" schema="ETEAM8" optimistic-lock="version">
+        <id name="datevisite" type="date">
+            <column name="DATEVISITE" length="7" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="client" class="Modele.Client" fetch="select">
+            <column name="CLIENTID" length="10" />
+        </many-to-one>
+        <many-to-one name="employe" class="Modele.Employe" fetch="select">
+            <column name="EMPLOYEID" length="5" />
+        </many-to-one>
+        <many-to-one name="bienimmobilier" class="Modele.Bienimmobilier" fetch="select">
+            <column name="BIENID" precision="5" scale="0" />
+            <column name="IMMEUBLEID" length="10" />
+        </many-to-one>
+        <property name="nom" type="string">
+            <column name="NOM" length="20" />
+        </property>
+    </class>
+</hibernate-mapping>

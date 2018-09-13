@@ -1,5 +1,5 @@
 package Modele;
-// Generated 2018-09-08 03:12:36 by Hibernate Tools 4.3.1
+// Generated 2018-09-12 22:58:17 by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -12,22 +12,23 @@ public class Bail  implements java.io.Serializable {
 
      private BailId id;
      private Locataire locataire;
+     private Bienimmobilier bienimmobilier;
      private Date dateFin;
-     private Integer bienid;
 
     public Bail() {
     }
 
 	
-    public Bail(BailId id, Locataire locataire) {
+    public Bail(BailId id, Locataire locataire, Bienimmobilier bienimmobilier) {
         this.id = id;
         this.locataire = locataire;
+        this.bienimmobilier = bienimmobilier;
     }
-    public Bail(BailId id, Locataire locataire, Date dateFin, Integer bienid) {
+    public Bail(BailId id, Locataire locataire, Bienimmobilier bienimmobilier, Date dateFin) {
        this.id = id;
        this.locataire = locataire;
+       this.bienimmobilier = bienimmobilier;
        this.dateFin = dateFin;
-       this.bienid = bienid;
     }
    
     public BailId getId() {
@@ -44,19 +45,19 @@ public class Bail  implements java.io.Serializable {
     public void setLocataire(Locataire locataire) {
         this.locataire = locataire;
     }
+    public Bienimmobilier getBienimmobilier() {
+        return this.bienimmobilier;
+    }
+    
+    public void setBienimmobilier(Bienimmobilier bienimmobilier) {
+        this.bienimmobilier = bienimmobilier;
+    }
     public Date getDateFin() {
         return this.dateFin;
     }
     
     public void setDateFin(Date dateFin) {
         this.dateFin = dateFin;
-    }
-    public Integer getBienid() {
-        return this.bienid;
-    }
-    
-    public void setBienid(Integer bienid) {
-        this.bienid = bienid;
     }
 
 

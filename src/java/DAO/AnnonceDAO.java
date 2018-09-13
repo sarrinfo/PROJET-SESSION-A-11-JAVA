@@ -6,7 +6,7 @@
 package DAO;
 
 
-import Modele.Details;
+import Modele.Annonce;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -14,12 +14,12 @@ import org.hibernate.Transaction;
  *
  * @author SARRINFO
  */
-public class DetailsDAO {
+public class AnnonceDAO {
   
     
     static Session session = null;
 
-    public static void insert(Details ann) {
+    public static void insert(Annonce ann) {
         session = HibernateUtil.getSessionFactory().openSession();
 
         Transaction tx = session.beginTransaction();
@@ -28,7 +28,7 @@ public class DetailsDAO {
         session.close();
     }
     
-    public static void delete(Details ann) {
+    public static void delete(Annonce ann) {
         session = HibernateUtil.getSessionFactory().openSession();
 
         Transaction tx = session.beginTransaction();

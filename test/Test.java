@@ -11,18 +11,18 @@
 
 
 import DAO.AdresseDAO;
-import DAO.DetailsDAO;
+import DAO.AnnonceDAO;
 import DAO.BienImmobilierDAO;
 import DAO.HibernateUtil;
-import DAO.ImagesDAO;
+import DAO.ImageDAO;
 import DAO.ImmeubleDAO;
 import Modele.Adresse;
 import Modele.AdresseId;
 import Modele.Bienimmobilier;
 import Modele.BienimmobilierId;
-import Modele.Details;
-import Modele.Images;
-import Modele.ImagesId;
+import Modele.Annonce;
+import Modele.Image;
+import Modele.ImageId;
 import Modele.Immeuble;
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -77,55 +77,58 @@ public class Test {
         BienImmobilierDAO.insert(bien4);
         BienImmobilierDAO.insert(bien5);
         
-       
-        byte Id =1;
-        byte Id1 =2;
-        byte Id2 =3;
-        byte Id3 =4;
-        byte Id4 =5;
-        
-        Images img = new Images(new ImagesId("R001",10001,Id));
-        Images img1 = new Images(new ImagesId("R001",10001,Id1));
-        Images img2 = new Images(new ImagesId("R001",10001,Id2));
-        Images img3 = new Images(new ImagesId("R001",10001,Id3));
-        Images img4 = new Images(new ImagesId("R001",10001,Id4));
-        ImagesDAO.insert(img);
-        ImagesDAO.insert(img1);
-        ImagesDAO.insert(img2);
-        ImagesDAO.insert(img3);
-        ImagesDAO.insert(img4);
-      
-        img = new Images(new ImagesId("R001",10002,Id));
-        img1 = new Images(new ImagesId("R001",10002,Id1));
-        img2 = new Images(new ImagesId("R001",10002,Id2));
-        img3 = new Images(new ImagesId("R001",10002,Id3));
-        img4 = new Images(new ImagesId("R001",10002,Id4));
-        ImagesDAO.insert(img);
-        ImagesDAO.insert(img1);
-        ImagesDAO.insert(img2);
-        ImagesDAO.insert(img3);
-        ImagesDAO.insert(img4);
-       
-        img = new Images(new ImagesId("C001",10002,Id));
-        img1 = new Images(new ImagesId("C001",10002,Id1));
-        img2 = new Images(new ImagesId("C001",10002,Id2));
-        img3 = new Images(new ImagesId("C001",10002,Id3));
-        img4 = new Images(new ImagesId("C001",10002,Id4));
-        ImagesDAO.insert(img);
-        ImagesDAO.insert(img1);
-        ImagesDAO.insert(img2);
-        ImagesDAO.insert(img3);
-        ImagesDAO.insert(img4);
+//        Image img = new Image(new ImageId("R001",10001,0));
+//        Image img1 = new Image(new ImageId("R001",10001,1));
+//        Image img2 = new Image(new ImageId("R001",10001,2));
+//        Image img3 = new Image(new ImageId("R001",10001,3));
+//        Image img4 = new Image(new ImageId("R001",10001,4));
+//        ImageDAO.insert(img);
+//        ImageDAO.insert(img1);
+//        ImageDAO.insert(img2);
+//        ImageDAO.insert(img3);
+//        ImageDAO.insert(img4);
+//      
+//        img = new Image(new ImageId("R001",10002,0));
+//        img1 = new Image(new ImageId("R001",10002,1));
+//        img2 = new Image(new ImageId("R001",10002,2));
+//        img3 = new Image(new ImageId("R001",10002,3));
+//        img4 = new Image(new ImageId("R001",10002,4));
+//        ImageDAO.insert(img);
+//        ImageDAO.insert(img1);
+//        ImageDAO.insert(img2);
+//        ImageDAO.insert(img3);
+//        ImageDAO.insert(img4);
+//       
+//        img = new Image(new ImageId("C001",10002,0));
+//        img1 = new Image(new ImageId("C001",10002,1));
+//        img2 = new Image(new ImageId("C001",10002,2));
+//        img3 = new Image(new ImageId("C001",10002,3));
+//        img4 = new Image(new ImageId("C001",10002,4));
+//        ImageDAO.insert(img);
+//        ImageDAO.insert(img1);
+//        ImageDAO.insert(img2);
+//        ImageDAO.insert(img3);
+//        ImageDAO.insert(img4);
         
      
         Date date = new Date("2018/07/06");
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
-        Details ann = new Details(10001, "Grand 4 1/2 pres de la station Henri Bourassa"
+        Annonce ann = new Annonce(10001,bien, "Grand 4 1/2 pres de la station Henri Bourassa"
                 + "",4,2,300,date,"chauffage inclus, frigo et poele","internet"," "
-                        + "proche du metro Henri Bourassa"," Parking sous sol",10001 ,"R001" );
-        DetailsDAO.insert(ann);
+                        + "proche du metro Henri Bourassa"," Parking sous sol");
         
+
+        AnnonceDAO.insert(ann);
+       
+//        Calendar calendier = Calendar.getInstance();
+//        calendier.set(2018, 9, 20, 12, 30);
+//      
+//        calendier.getWeeksInWeekYear();
+//        
+////        System.out.println(hours);
+//        System.out.println(calendier.getTime());
+       
         
 
 //        List <Bienimmobilier> list= BienImmobilierDAO.allBienImmobiliers();

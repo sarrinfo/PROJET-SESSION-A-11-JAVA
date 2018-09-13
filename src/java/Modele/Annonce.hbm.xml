@@ -1,13 +1,17 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2018-09-08 03:12:37 by Hibernate Tools 4.3.1 -->
+<!-- Generated 2018-09-12 22:58:19 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="Modele.Details" table="DETAILS" schema="ETEAM8" optimistic-lock="version">
+    <class name="Modele.Annonce" table="ANNONCE" schema="ETEAM8" optimistic-lock="version">
         <id name="numero" type="int">
             <column name="NUMERO" precision="5" scale="0" />
             <generator class="assigned" />
         </id>
+        <many-to-one name="bienimmobilier" class="Modele.Bienimmobilier" fetch="select">
+            <column name="BIENID" precision="5" scale="0" />
+            <column name="IMMEUBLEID" length="10" />
+        </many-to-one>
         <property name="titre" type="string">
             <column name="TITRE" length="60" />
         </property>
@@ -34,12 +38,6 @@
         </property>
         <property name="autresdescription" type="string">
             <column name="AUTRESDESCRIPTION" length="200" />
-        </property>
-        <property name="bienid" type="java.lang.Integer">
-            <column name="BIENID" precision="5" scale="0" />
-        </property>
-        <property name="immeubleid" type="string">
-            <column name="IMMEUBLEID" length="10" />
         </property>
     </class>
 </hibernate-mapping>
