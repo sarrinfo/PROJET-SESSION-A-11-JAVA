@@ -1,0 +1,157 @@
+DROP TABLE IMMEUBLE CASCADE CONSTRAINTS;
+DROP TABLE BIENIMMOBILIER CASCADE CONSTRAINTS;
+DROP TABLE bail CASCADE CONSTRAINTS;
+DROP TABLE IMAGE CASCADE CONSTRAINTS;
+DROP TABLE Client CASCADE CONSTRAINTS;
+DROP TABLE Locataire CASCADE CONSTRAINTS;
+DROP TABLE Visite CASCADE CONSTRAINTS;
+DROP TABLE annonce CASCADE CONSTRAINTS;
+DROP TABLE Employe CASCADE CONSTRAINTS;
+DROP TABLE adresse CASCADE CONSTRAINTS;
+DROP TABLE utilisateur CASCADE CONSTRAINTS;
+
+create table ADRESSE
+(
+codePostal varchar2(10),
+numero number(5),
+rue varchar2(20) not null,
+localite varchar2(20),
+ville varchar2(20),
+primary key (codePostal, numero)
+);
+commit;
+
+create table IMMEUBLE
+(
+ImmeubleID varchar2(10),
+codePostal varchar2(10),
+numero number(5),
+Type_Immeuble varchar2(20),
+primary key (ImmeubleID),
+foreign key (codePostal, numero) REFERENCES ADRESSE
+);
+
+create table BIENIMMOBILIER
+(
+BIENID number(5),
+ImmeubleID varchar2(10),
+Type_BIENIMMOBILIER varchar2(20),
+Prix_loyer decimal(7,2),
+primary key (BIENID, ImmeubleID),
+foreign key (ImmeubleID) REFERENCES IMMEUBLE
+);
+commit;
+
+
+
+create table Locataire
+(
+LocataireID number(5),
+Nom varchar(20),
+Prenom varchar(40),
+Telephone varchar(15),
+Courriel varchar(60),
+primary key (LocataireID)
+);
+commit;
+
+
+
+create table BAIL
+(
+ImmeubleID varchar2(10),
+LocataireID number(5),
+Date_Debut date,
+Date_Fin date,
+BIENID number(5),
+primary key (ImmeubleID, LocataireID, Date_Debut),
+foreign key (BIENID, ImmeubleID) REFERENCES BIENIMMOBILIER(BIENID, ImmeubleID),
+foreign key (LocataireID) REFERENCES Locataire
+);
+commit;
+
+
+
+create table IMAGE
+(
+ImmeubleID varchar2(10),
+BIENID number(5),
+ImageID number(5),
+primary key (ImmeubleID, BIENID, ImageID),
+foreign key (BIENID, ImmeubleID) REFERENCES BIENIMMOBILIER(BIENID, ImmeubleID),
+foreign key (ImmeubleID) REFERENCES IMMEUBLE
+);
+commit;
+
+create table Client
+(
+clientID varchar2(10),
+nom varchar2(20) not null,
+prenom varchar2(60),
+telephone varchar2(15),
+courriel varchar2(60),
+primary key (clientID)
+);
+commit;
+
+create table Annonce 
+(
+numero number(5), 
+titre varchar2(60),
+nombrePieces number(5),
+nombreSDB number(5), 
+surface number(5), 
+anneeConstruction date,
+inclusion varchar2(200),
+exclusion varchar2(200),
+particularite varchar2(500),
+autresDescription varchar2(200),
+BIENID number(5),
+ImmeubleID varchar2(10),
+primary key (numero),
+foreign key (BIENID, ImmeubleID) REFERENCES BIENIMMOBILIER(BIENID, ImmeubleID) 
+);
+commit;
+
+create table Employe
+(
+EmployeID varchar(5),
+nom varchar2(20),
+prenom varchar2(30),
+Departement varchar2(20),
+Fonction varchar2(20),
+NAS varchar2(9),
+primary key (EmployeID)
+);
+commit;
+
+create table utilisateur
+(
+nomUtilisateur varchar(20),
+courriel varchar2(20),
+motDePasse varchar2(20),
+photo number(5),
+EmployeID varchar(5),
+LocataireID number(5),
+clientID varchar2(10),
+primary key (nomUtilisateur,courriel),
+foreign key (clientID) REFERENCES CLIENT,
+foreign key (EmployeID) REFERENCES Employe, 
+foreign key (LocataireID) REFERENCES Locataire
+);
+commit;
+
+create table Visite
+(
+DateVisite date,
+clientID varchar2(10),
+BIENID number(5),
+ImmeubleID varchar2(10),
+EmployeID varchar(5),
+nom varchar2(20),
+primary key (DateVisite),
+foreign key (BIENID, ImmeubleID) REFERENCES BIENIMMOBILIER(BIENID, ImmeubleID),
+foreign key (clientID) REFERENCES Client,
+foreign key (EmployeID) REFERENCES Employe(EmployeID)
+);
+commit;
