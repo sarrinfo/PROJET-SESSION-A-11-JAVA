@@ -15,6 +15,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 
 /**
@@ -40,6 +41,7 @@ public class Inscription extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         /* Affichage de la page de connexion */
+        HttpSession session = request.getSession();
 
 //        this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
 
@@ -55,9 +57,9 @@ public class Inscription extends HttpServlet {
 
         /* Stockage du formulaire et du bean dans l'objet request */
 
-        request.setAttribute( ATT_FORM, form );
+        session.setAttribute( ATT_FORM, form );
 
-        request.setAttribute( ATT_USER, utilisateur );
+        session.setAttribute( ATT_USER, utilisateur );
 
          RequestDispatcher disp = request.getRequestDispatcher(VUE);
          disp.forward(request, response);

@@ -7,6 +7,7 @@ package Controleur;
 
 
 import DAO.BienImmobilierDAO;
+import DAO.HibernateUtil;
 import DAO.ImmeubleDAO;
 import Modele.Bienimmobilier;
 import Modele.Immeuble;
@@ -58,7 +59,7 @@ public class ControleurPrincipale extends HttpServlet {
             VUE = "/WEB-INF/displayListALouer.jsp";
             List<Bienimmobilier> listApp = BienImmobilierDAO.allBienImmobiliers();
             session.setAttribute("listApp", listApp);
-            //HibernateUtil.getSessionFactory().close();
+//            HibernateUtil.getSessionFactory().close();
 
         } else if (action.equals("maison")) {
 
@@ -66,12 +67,6 @@ public class ControleurPrincipale extends HttpServlet {
             List<Immeuble> listImm = ImmeubleDAO.allImmeubles();
             session.setAttribute("listImm", listImm);
             //HibernateUtil.getSessionFactory().close();
-
-        } else if (action.equals("connexion")) {
-            VUE = "/Connexion";
-        }
-        else if(action.equals("inscription")){
-            VUE = "/Inscription";
         }
             ServletContext sc = getServletContext();
             RequestDispatcher rd = sc.getRequestDispatcher(VUE);

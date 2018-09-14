@@ -46,16 +46,16 @@ Contributor(s):
     <property name="hibernate.connection.url">jdbc:oracle:thin:@144.217.163.57:1521:XE</property>
     <property name="hibernate.connection.username">eteam8</property>
     <property name="hibernate.connection.password">zaier</property>
-    <mapping resource="Modele/Annonce.hbm.xml"/>
-    <mapping resource="Modele/Employe.hbm.xml"/>
+    <mapping resource="Modele/Client.hbm.xml"/>
     <mapping resource="Modele/Image.hbm.xml"/>
     <mapping resource="Modele/Bail.hbm.xml"/>
     <mapping resource="Modele/Locataire.hbm.xml"/>
-    <mapping class="" file="" jar="" package="" resource="Modele/Utilisateur.hbm.xml"/>
-    <mapping resource="Modele/Adresse.hbm.xml"/>
-    <mapping resource="Modele/Client.hbm.xml"/>
-    <mapping resource="Modele/Immeuble.hbm.xml"/>
     <mapping resource="Modele/Visite.hbm.xml"/>
+    <mapping resource="Modele/Employe.hbm.xml"/>
+    <mapping resource="Modele/Adresse.hbm.xml"/>
     <mapping resource="Modele/Bienimmobilier.hbm.xml"/>
+    <mapping resource="Modele/Utilisateur.hbm.xml"/>
+    <mapping resource="Modele/Immeuble.hbm.xml"/>
+    <mapping resource="Modele/Annonce.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

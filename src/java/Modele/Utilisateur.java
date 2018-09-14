@@ -1,5 +1,5 @@
 package Modele;
-// Generated 2018-09-12 22:58:17 by Hibernate Tools 4.3.1
+// Generated 2018-09-14 01:24:50 by Hibernate Tools 4.3.1
 
 
 
@@ -10,11 +10,10 @@ public class Utilisateur  implements java.io.Serializable {
 
 
      private UtilisateurId id;
-     private String nomutilisateur;
-     private String prenom;
-     private String courriel;
+     private Locataire locataire;
+     private Client client;
+     private Employe employe;
      private String motdepasse;
-     private String telephone;
      private Integer photo;
 
     public Utilisateur() {
@@ -24,14 +23,34 @@ public class Utilisateur  implements java.io.Serializable {
     public Utilisateur(UtilisateurId id) {
         this.id = id;
     }
-    public Utilisateur(UtilisateurId id, String nomutilisateur, String prenom, String courriel, String motdepasse, String telephone, Integer photo) {
+    public Utilisateur(UtilisateurId id, Locataire locataire, Client client, Employe employe, String motdepasse, Integer photo) {
        this.id = id;
-       this.nomutilisateur = nomutilisateur;
-       this.prenom = prenom;
-       this.courriel = courriel;
+       this.locataire = locataire;
+       this.client = client;
+       this.employe = employe;
        this.motdepasse = motdepasse;
-       this.telephone = telephone;
        this.photo = photo;
+    }
+   public Utilisateur(UtilisateurId id, Locataire locataire, String motdepasse, Integer photo) {
+       this.id = id;
+       this.locataire = locataire;
+       this.motdepasse = motdepasse;
+       this.photo = photo;
+    }
+    public Utilisateur(UtilisateurId id,Client client, String motdepasse, Integer photo) {
+       this.id = id;
+       this.client = client;
+       this.motdepasse = motdepasse;
+       this.photo = photo;
+    }
+    public Utilisateur(UtilisateurId id,Employe employe, String motdepasse, Integer photo) {
+       this.id = id;
+       this.motdepasse = motdepasse;
+       this.photo = photo;
+    }
+    public Utilisateur(UtilisateurId id,String motdepasse) {
+       this.id = id;
+       this.motdepasse = motdepasse;
     }
    
     public UtilisateurId getId() {
@@ -41,26 +60,26 @@ public class Utilisateur  implements java.io.Serializable {
     public void setId(UtilisateurId id) {
         this.id = id;
     }
-    public String getNomutilisateur() {
-        return this.nomutilisateur;
+    public Locataire getLocataire() {
+        return this.locataire;
     }
     
-    public void setNomutilisateur(String nomutilisateur) {
-        this.nomutilisateur = nomutilisateur;
+    public void setLocataire(Locataire locataire) {
+        this.locataire = locataire;
     }
-    public String getPrenom() {
-        return this.prenom;
-    }
-    
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
-    }
-    public String getCourriel() {
-        return this.courriel;
+    public Client getClient() {
+        return this.client;
     }
     
-    public void setCourriel(String courriel) {
-        this.courriel = courriel;
+    public void setClient(Client client) {
+        this.client = client;
+    }
+    public Employe getEmploye() {
+        return this.employe;
+    }
+    
+    public void setEmploye(Employe employe) {
+        this.employe = employe;
     }
     public String getMotdepasse() {
         return this.motdepasse;
@@ -68,13 +87,6 @@ public class Utilisateur  implements java.io.Serializable {
     
     public void setMotdepasse(String motdepasse) {
         this.motdepasse = motdepasse;
-    }
-    public String getTelephone() {
-        return this.telephone;
-    }
-    
-    public void setTelephone(String telephone) {
-        this.telephone = telephone;
     }
     public Integer getPhoto() {
         return this.photo;

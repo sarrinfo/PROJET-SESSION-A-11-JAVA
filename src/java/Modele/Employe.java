@@ -1,5 +1,5 @@
 package Modele;
-// Generated 2018-09-12 22:58:17 by Hibernate Tools 4.3.1
+// Generated 2018-09-14 01:24:50 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -18,6 +18,7 @@ public class Employe  implements java.io.Serializable {
      private String fonction;
      private String nas;
      private Set visites = new HashSet(0);
+     private Set utilisateurs = new HashSet(0);
 
     public Employe() {
     }
@@ -26,7 +27,7 @@ public class Employe  implements java.io.Serializable {
     public Employe(String employeid) {
         this.employeid = employeid;
     }
-    public Employe(String employeid, String nom, String prenom, String departement, String fonction, String nas, Set visites) {
+    public Employe(String employeid, String nom, String prenom, String departement, String fonction, String nas, Set visites, Set utilisateurs) {
        this.employeid = employeid;
        this.nom = nom;
        this.prenom = prenom;
@@ -34,6 +35,20 @@ public class Employe  implements java.io.Serializable {
        this.fonction = fonction;
        this.nas = nas;
        this.visites = visites;
+       this.utilisateurs = utilisateurs;
+    }
+     public Employe(String employeid, String nom, String prenom, String departement, String fonction, String nas) {
+       this.employeid = employeid;
+       this.nom = nom;
+       this.prenom = prenom;
+       this.departement = departement;
+       this.fonction = fonction;
+       this.nas = nas;
+    }
+    public Employe(String employeid, String nom, String prenom) {
+       this.employeid = employeid;
+       this.nom = nom;
+       this.prenom = prenom;
     }
    
     public String getEmployeid() {
@@ -84,6 +99,13 @@ public class Employe  implements java.io.Serializable {
     
     public void setVisites(Set visites) {
         this.visites = visites;
+    }
+    public Set getUtilisateurs() {
+        return this.utilisateurs;
+    }
+    
+    public void setUtilisateurs(Set utilisateurs) {
+        this.utilisateurs = utilisateurs;
     }
 
 

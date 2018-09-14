@@ -1,5 +1,5 @@
 package Modele;
-// Generated 2018-09-12 22:58:17 by Hibernate Tools 4.3.1
+// Generated 2018-09-14 01:24:50 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -31,7 +31,8 @@ public class Immeuble  implements java.io.Serializable {
        this.bienimmobiliers = bienimmobiliers;
        this.images = images;
     }
-     public Immeuble(String immeubleid, Adresse adresse, String typeImmeuble) {
+    
+    public Immeuble(String immeubleid, Adresse adresse, String typeImmeuble) {
        this.immeubleid = immeubleid;
        this.adresse = adresse;
        this.typeImmeuble = typeImmeuble;

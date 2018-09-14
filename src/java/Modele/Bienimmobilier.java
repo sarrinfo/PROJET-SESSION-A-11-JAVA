@@ -1,5 +1,5 @@
 package Modele;
-// Generated 2018-09-12 22:58:17 by Hibernate Tools 4.3.1
+// Generated 2018-09-14 01:24:50 by Hibernate Tools 4.3.1
 
 
 import java.math.BigDecimal;
@@ -39,7 +39,7 @@ public class Bienimmobilier  implements java.io.Serializable {
        this.images = images;
        this.bails = bails;
     }
-        public Bienimmobilier(BienimmobilierId id, Immeuble immeuble, String typeBienimmobilier, BigDecimal prixLoyer) {
+      public Bienimmobilier(BienimmobilierId id, Immeuble immeuble, String typeBienimmobilier, BigDecimal prixLoyer) {
        this.id = id;
        this.immeuble = immeuble;
        this.typeBienimmobilier = typeBienimmobilier;

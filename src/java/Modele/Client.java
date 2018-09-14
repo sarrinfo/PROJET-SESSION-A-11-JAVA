@@ -1,5 +1,5 @@
 package Modele;
-// Generated 2018-09-12 22:58:17 by Hibernate Tools 4.3.1
+// Generated 2018-09-14 01:24:50 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -16,6 +16,7 @@ public class Client  implements java.io.Serializable {
      private String prenom;
      private String telephone;
      private String courriel;
+     private Set utilisateurs = new HashSet(0);
      private Set visites = new HashSet(0);
 
     public Client() {
@@ -26,22 +27,21 @@ public class Client  implements java.io.Serializable {
         this.clientid = clientid;
         this.nom = nom;
     }
-    public Client(String clientid, String nom, String prenom, String telephone, String courriel, Set visites) {
+    public Client(String clientid, String nom, String prenom, String telephone, String courriel, Set utilisateurs, Set visites) {
        this.clientid = clientid;
        this.nom = nom;
        this.prenom = prenom;
        this.telephone = telephone;
        this.courriel = courriel;
+       this.utilisateurs = utilisateurs;
        this.visites = visites;
     }
-    
-      public Client(String clientid, String nom, String prenom, String telephone, String courriel) {
+     public Client(String clientid, String nom, String prenom, String telephone, String courriel) {
        this.clientid = clientid;
        this.nom = nom;
        this.prenom = prenom;
        this.telephone = telephone;
        this.courriel = courriel;
-
     }
    
     public String getClientid() {
@@ -78,6 +78,13 @@ public class Client  implements java.io.Serializable {
     
     public void setCourriel(String courriel) {
         this.courriel = courriel;
+    }
+    public Set getUtilisateurs() {
+        return this.utilisateurs;
+    }
+    
+    public void setUtilisateurs(Set utilisateurs) {
+        this.utilisateurs = utilisateurs;
     }
     public Set getVisites() {
         return this.visites;

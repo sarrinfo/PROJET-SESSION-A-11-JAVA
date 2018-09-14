@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2018-09-12 22:58:19 by Hibernate Tools 4.3.1 -->
+<!-- Generated 2018-09-14 01:24:52 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="Modele.Employe" table="EMPLOYE" schema="ETEAM8" optimistic-lock="version">
         <id name="employeid" type="string">
@@ -28,6 +28,12 @@
                 <column name="EMPLOYEID" length="5" />
             </key>
             <one-to-many class="Modele.Visite" />
+        </set>
+        <set name="utilisateurs" table="UTILISATEUR" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYEID" length="5" />
+            </key>
+            <one-to-many class="Modele.Utilisateur" />
         </set>
     </class>
 </hibernate-mapping>

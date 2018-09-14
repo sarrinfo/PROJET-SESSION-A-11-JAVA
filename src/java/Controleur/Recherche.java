@@ -5,6 +5,12 @@
  */
 package Controleur;
 
+import DAO.BienImmobilierDAO;
+import DAO.VisiteDAO;
+import Modele.Bienimmobilier;
+import Modele.Visite;
+import java.io.IOException;
+import static java.lang.Integer.parseInt;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -39,7 +45,6 @@ public class Recherche extends HttpServlet {
         if (session == null) {
             response.sendRedirect(VUE);
         }
-        // Shopping shop = new Shopping();
 
         String action = request.getParameter("action");
 
@@ -58,6 +63,13 @@ public class Recherche extends HttpServlet {
         } else if (action.equals("RechercheRapide")) {
 
             VUE = "/WEB-INF/displayListAll.jsp";
+        
+        } else if (action.equals("visite")) {
+            VUE = "/WEB-INF/displayListRDV.jsp";
+            
+            int idBien = parseInt(request.getParameter("bien"));
+            List<Visite> listRDV = VisiteDAO.simpleVisite(idBien);
+            session.setAttribute("listRDV", listRDV);
 
         } 
             ServletContext sc = getServletContext();

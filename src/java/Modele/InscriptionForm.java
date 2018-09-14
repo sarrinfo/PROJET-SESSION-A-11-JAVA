@@ -6,8 +6,9 @@ package Modele;
  * and open the template in the editor.
  */
 
-import DAO.HibernateUtil;
+
 import DAO.UtilisateurDAO;
+import Modele.Utilisateur;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -40,14 +41,14 @@ public final class InscriptionForm {
         String nom   = getValeurChamp( request, CHAMP_NOM );
 
         Utilisateur utilisateur = new Utilisateur();
-
+        UtilisateurId user = new UtilisateurId(nom,email);
+        utilisateur.setId(user);
         /* Validation du champ email. */
         try {
             validationEmail( email );
         } catch ( Exception e ) {
             setErreur( CHAMP_EMAIL, e.getMessage() );
         }
-        utilisateur.setCourriel( email );
 
         /* Validation du champ mot de passe. */
         try {
@@ -56,7 +57,7 @@ public final class InscriptionForm {
             setErreur( CHAMP_PASS, e.getMessage() );
             setErreur( CHAMP_CONF, null );
         }
-        utilisateur.setMotdepasse( motDePasse );
+        utilisateur.setMotdepasse(motDePasse );
         
         /* Validation du nom utilisateur*/
         try {
@@ -64,15 +65,11 @@ public final class InscriptionForm {
         } catch ( Exception e ) {
             setErreur( CHAMP_NOM, e.getMessage() );
         }
-        utilisateur.setNomutilisateur( nom );
 
         /* Initialisation du résultat global de la validation. */
         if ( erreurs.isEmpty() ) {
-            utilisateur.setId(new UtilisateurId(00001,nom));
             UtilisateurDAO.insert(utilisateur);
             resultat = "Succés de l'inscription.";
-            HibernateUtil.getSessionFactory().close();
-            
         } else {
             resultat = "Échec de l'inscription.";
         }

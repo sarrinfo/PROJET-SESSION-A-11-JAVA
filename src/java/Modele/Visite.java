@@ -1,5 +1,5 @@
 package Modele;
-// Generated 2018-09-12 22:58:17 by Hibernate Tools 4.3.1
+// Generated 2018-09-14 01:24:50 by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -29,6 +29,11 @@ public class Visite  implements java.io.Serializable {
        this.employe = employe;
        this.bienimmobilier = bienimmobilier;
        this.nom = nom;
+    }
+    public Visite(Date datevisite, Employe employe, Bienimmobilier bienimmobilier) {
+       this.datevisite = datevisite;
+       this.employe = employe;
+       this.bienimmobilier = bienimmobilier;
     }
    
     public Date getDatevisite() {

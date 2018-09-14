@@ -1,5 +1,5 @@
 package Modele;
-// Generated 2018-09-12 22:58:17 by Hibernate Tools 4.3.1
+// Generated 2018-09-14 01:24:50 by Hibernate Tools 4.3.1
 
 
 
@@ -9,30 +9,30 @@ package Modele;
 public class UtilisateurId  implements java.io.Serializable {
 
 
-     private int utilisateurid;
-     private String nom;
+     private String nomutilisateur;
+     private String courriel;
 
     public UtilisateurId() {
     }
 
-    public UtilisateurId(int utilisateurid, String nom) {
-       this.utilisateurid = utilisateurid;
-       this.nom = nom;
+    public UtilisateurId(String nomutilisateur, String courriel) {
+       this.nomutilisateur = nomutilisateur;
+       this.courriel = courriel;
     }
    
-    public int getUtilisateurid() {
-        return this.utilisateurid;
+    public String getNomutilisateur() {
+        return this.nomutilisateur;
     }
     
-    public void setUtilisateurid(int utilisateurid) {
-        this.utilisateurid = utilisateurid;
+    public void setNomutilisateur(String nomutilisateur) {
+        this.nomutilisateur = nomutilisateur;
     }
-    public String getNom() {
-        return this.nom;
+    public String getCourriel() {
+        return this.courriel;
     }
     
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setCourriel(String courriel) {
+        this.courriel = courriel;
     }
 
 
@@ -42,15 +42,15 @@ public class UtilisateurId  implements java.io.Serializable {
 		 if ( !(other instanceof UtilisateurId) ) return false;
 		 UtilisateurId castOther = ( UtilisateurId ) other; 
          
-		 return (this.getUtilisateurid()==castOther.getUtilisateurid())
- && ( (this.getNom()==castOther.getNom()) || ( this.getNom()!=null && castOther.getNom()!=null && this.getNom().equals(castOther.getNom()) ) );
+		 return ( (this.getNomutilisateur()==castOther.getNomutilisateur()) || ( this.getNomutilisateur()!=null && castOther.getNomutilisateur()!=null && this.getNomutilisateur().equals(castOther.getNomutilisateur()) ) )
+ && ( (this.getCourriel()==castOther.getCourriel()) || ( this.getCourriel()!=null && castOther.getCourriel()!=null && this.getCourriel().equals(castOther.getCourriel()) ) );
    }
    
    public int hashCode() {
          int result = 17;
          
-         result = 37 * result + this.getUtilisateurid();
-         result = 37 * result + ( getNom() == null ? 0 : this.getNom().hashCode() );
+         result = 37 * result + ( getNomutilisateur() == null ? 0 : this.getNomutilisateur().hashCode() );
+         result = 37 * result + ( getCourriel() == null ? 0 : this.getCourriel().hashCode() );
          return result;
    }   
 

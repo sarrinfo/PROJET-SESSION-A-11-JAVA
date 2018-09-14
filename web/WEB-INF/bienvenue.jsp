@@ -14,6 +14,6 @@
         <title>SEN IMMOBILIER</title>
     </head>
     <body>
-        <h1>Bienvenue : <c:out value="${sessionScope.sessionUtilisateur.email}"/> </h1>
+        <h1>Bienvenue : page a completer</h1>
     </body>
 </html>
