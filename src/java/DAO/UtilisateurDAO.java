@@ -50,7 +50,7 @@ public class UtilisateurDAO {
     
         public static Utilisateur verifyPWD(String pwd, String email) {
         session = HibernateUtil.getSessionFactory().openSession();
-        Query query = session.createQuery("from Utilisateur U where U.email = :mail and U.motdepasse = :pwd");
+        Query query = session.createQuery("from Utilisateur where courriel = :mail and motDePasse = :pwd");
         query.setParameter("mail", email);
         query.setParameter("pwd", pwd);
         Utilisateur results = (Utilisateur) query.uniqueResult();

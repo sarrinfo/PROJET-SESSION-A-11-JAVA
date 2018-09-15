@@ -9,6 +9,7 @@ import Modele.Bienimmobilier;
 import Modele.Visite;
 import Modele.Client;
 import Modele.Employe;
+import java.util.Date;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Transaction;
@@ -96,6 +97,14 @@ public class VisiteDAO {
         Query query = session.createQuery("from Visite where BIENID = :idBien and clientID is null");
         query.setParameter("idBien", idBien);
         List<Visite> results = query.list();
+
+        return results;
+        }
+        public static Visite simpleVisite(Date dateVisite) {
+        session = HibernateUtil.getSessionFactory().openSession();
+        Query query = session.createQuery("from Visite where dateVisite = :date ");
+        query.setParameter("date", dateVisite);
+        Visite results = (Visite)query.uniqueResult();
 
         return results;
         }
