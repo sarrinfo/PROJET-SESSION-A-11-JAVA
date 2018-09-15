@@ -14,6 +14,10 @@
         <title>SEN IMMOBILIER</title>
     </head>
     <body>
+        <div > 
+            <div class="container"> 
         <h1>Bienvenue : page a completer</h1>
+         </div > 
+            </div > 
     </body>
 </html>

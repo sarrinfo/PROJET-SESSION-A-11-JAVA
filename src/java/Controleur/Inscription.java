@@ -28,7 +28,7 @@ public class Inscription extends HttpServlet {
 
     public static final String ATT_FORM         = "form";
 
-    public static final String VUE              = "/WEB-INF/bienvenue.jsp";
+    public static final String VUE              = "/WEB-INF/inscription.jsp";
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.

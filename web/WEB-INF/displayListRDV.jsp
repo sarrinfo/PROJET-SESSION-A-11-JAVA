@@ -11,23 +11,47 @@
     <!DOCTYPE html>
     <html>
         <head>
-            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-            <title>Liste Rendez Vous Disponible</title>
+            <title>Design Responsive : Labo 1 - Correction</title>
+            <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         </head>
         <body>
-            <form  style="text-align: right" name="fValider" action="#" method="POST">
-            <c:forEach varStatus="listRDV" items="${listRDV}">
-                <div style="padding : 10px 250px 10px 250px">
-                    <div class="form-control btn-outline-success">  
-                        <p><input type="radio" name="action" value="${listRDV.current.datevisite}" />${listRDV.current.datevisite}</p>
+            <div > 
+                <div class="container">
+                    <form  class="text-center" name="fValider" action="Visite" method="POST">
+
+                        <div class="row">
+                            <div class="col-sm-9">
+                                <div id="main" class="cellule grand">
+
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="cellule moyen">
+                                    <div>
+                                    <c:forEach varStatus="listRDV" items="${listRDV}">
+                                        <div >
+                                            <div >  
+                                                <p><input type="radio" name="dateVisite" value="${listRDV.current.datevisite}" />${listRDV.current.datevisite}</p>
+                                            </div>
+                                        </div>
+                                    </c:forEach>
+                                    <div >
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cellule petit">
+                                <input class="btn-outline-success" type="submit" value="Annuler" name="bAnnuler" />
+                                <input class="btn-outline-success" type="submit" value="valider" name="bValider" />
+                            </div>
+
+                        </div>
                     </div>
-                </div>
-            </c:forEach>
-            <div style="padding : 10px 250px 10px 250px">
-                <input class="btn-outline-success" type="submit" value="Annuler" name="bAnnuler" />
-                <input class="btn-outline-success" type="submit" value="valider" name="bValider" />
+
+                </form>
             </div>
-        </form>
+        </div > 
+
     </body>
 </html>
 

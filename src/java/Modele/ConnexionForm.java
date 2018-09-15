@@ -38,7 +38,7 @@ public final class ConnexionForm {
         /* Récupération des champs du formulaire */
         String email = getValeurChamp( request, CHAMP_EMAIL );
         String motDePasse = getValeurChamp( request, CHAMP_PASS );
-
+        
         Utilisateur utilisateur = new Utilisateur();
 
         /* Validation du champ email. */
@@ -47,7 +47,7 @@ public final class ConnexionForm {
         } catch ( Exception e ) {
             setErreur( CHAMP_EMAIL, e.getMessage() );
         }
-        utilisateur.getId().setCourriel(email);
+
 
         /* Validation du champ mot de passe. */
         try {
@@ -55,13 +55,13 @@ public final class ConnexionForm {
         } catch ( Exception e ) {
             setErreur( CHAMP_PASS, e.getMessage() );
         }
-        utilisateur.setMotdepasse( motDePasse );
+ 
 
         /* Initialisation du résultat global de la validation. */
         if ( erreurs.isEmpty() ) {
            Utilisateur user  =UtilisateurDAO.verifyPWD(motDePasse, email);
-            if(user.getMotdepasse().equals(utilisateur.getMotdepasse()) && 
-                   user.getId().getCourriel().equals(utilisateur.getId().getCourriel()))
+            if(user.getMotdepasse().equals(motDePasse) && 
+                   user.getId().getCourriel().equals(email))
             {
                 resultat = "Connexion reussie.";
                 VALIDE_PWD = true;

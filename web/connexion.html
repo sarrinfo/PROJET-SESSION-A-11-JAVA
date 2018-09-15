@@ -8,28 +8,42 @@ and open the template in the editor.
 <html>
     <head>
         <title >Valider Formulaire</title>
+        <link href="css/bootsrap.css" rel="stylesheet" type="text/css"/>
+        <link href="css/style.css" rel="stylesheet" type="text/css"/>
         <script type="text/javascript" src="javaScript/script.js"></script>
-        <link rel="stylesheet" type="text/css" href="css/style.css"> 
     </head>
 
     <body>
-        <div >
-            <a href="connexion.html"><h3>CONNEXION</h3></a>
-            <form action="ControleurPrincipale?action=connexion" name="Formulaire" onsubmit="return verifFormConnection(this)" method="POST">
-                </br>
-                <label>Identifiant :</label> <input type="text" name="email" placeholder="ex :123@yahoo.com" size="30" onblur="verifMail(this)"/>
-                <span class="obligatoire"> *</span>
-                <span id="email"></span>
-                </br></br></br>
-                <label>Mot de passe :</label><input type="password" minlength="8" name="motdepasse" size="30" placeholder="minimum 8 caracteres"onblur="verifPWD(this)" />
-                <span class="obligatoire"> *</span>
-                <span id="motdepasse"></span>
-                </br></br></br>
-                <label> Soumettre : </label><input type="submit" name="mEnvoyer" value="Envoyer" />
-                </br></br></br>
-            </form>
-            <a  href="inscription.html">Creer un compte</a>
-        </div>
+        <h1 class="text-center">
+            COSEPRIM
+        </h1>
+        <div class="container pt-3">
+            <div class="row justify-content-center">
+                <div class="col-sm-6 col-md-4">
+                    <div id="fConnexion" class="card border-info text-center">
+                        <div class="card-header">
+
+                            </br>CONNEXION </br>
+                        </div>
+                        <div class="card-body">
+                            <img>
+                            <h4 class="text-center">Bienvenue</h4>
+                            <form class="form-signin" action="Connexion" name="Formulaire" onsubmit="return verifFormConnection(this)" method="POST">
+                                <input type="text" class="form-control mb-2" id="email" name="email" placeholder="Votre email" onblur="verifMail(this)" required autofocus>
+                                <input type="password" class="form-control mb-2" id="motdepasse" name="motdepasse" placeholder="Entrez votre mot de passe" onblur="verifPWD(this)" required="">
+                                <button type="submit" class="btn btn-outline-dark btn-lg btn-block mb-1" >Connecter</button>
+                                <label class="checkbox float-left" >
+                                    <input type="checkbox" value="souvenir-moi">
+                                    Souvenir de moi
+                                </label>
+
+                            </form>
+                        </div>
+                    </div>
+                    <a href="inscription.html" class="float-right">Creer un compte</a>
+                </div>
+            </div>
+        </div >
     </body>
 </html>
 
