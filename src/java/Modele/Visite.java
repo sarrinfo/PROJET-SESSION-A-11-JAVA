@@ -2,6 +2,7 @@ package Modele;
 // Generated 2018-09-14 01:24:50 by Hibernate Tools 4.3.1
 
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -72,7 +73,12 @@ public class Visite  implements java.io.Serializable {
         this.nom = nom;
     }
 
-
+    public String toString(){
+        Date date1 = datevisite;
+        SimpleDateFormat simple = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        String date = simple.format(date1);
+        return ""+date;
+    }
 
 
 }

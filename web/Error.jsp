@@ -16,7 +16,7 @@
         <h2>Seach Error</h2>
         
         <p>An error occured while performing the search. Please try again.</p>
-        
+        <p>${erreur}</p>
         <p>Go back to <a href="display.jsp" class="link">Retour a la page d'acceuil</a>.</p>
     </body>
 </html>

@@ -56,12 +56,36 @@ h4 {
  
 
 #recherche{
+/*   display : none; */
    font-size: 24px;
    position:fixed;
-   padding-left: 100px;
-   background-color: transparent;
+   padding-left: 50px;
+   background-color: gray;
    height: 400px ;
    width: 500px;
+}
+#choix{
+   display : none;
+   position:relative; 
+}
+#selectType{
+   display : none;
+   position: absolute ; 
+   
+}
+#selectLocalite{
+   display : none;
+   position: static ; 
+}
+
+#visible{
+   display : block;
+   position: fixed;
+   width: 316px
+}
+
+#bar{
+display : block;
 }
 
 #logo{
@@ -78,3 +102,21 @@ h4 {
     color : red;
 }
 
+.popupBox {
+  position: absolute;
+  left: 140px;
+}
+
+.popupCell {
+   background-color: #fffafa;
+}
+
+.popupCell:hover {
+  background-color: #f5ebe9;
+}
+
+.popupItem {
+  color: #333;
+  text-decoration: none;
+  font-size: 1.2em;
+}

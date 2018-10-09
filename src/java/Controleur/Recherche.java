@@ -10,11 +10,13 @@ import DAO.VisiteDAO;
 import Modele.Bienimmobilier;
 import Modele.Visite;
 import java.io.IOException;
+import java.io.PrintWriter;
 import static java.lang.Integer.parseInt;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -47,7 +49,7 @@ public class Recherche extends HttpServlet {
         }
 
         String action = request.getParameter("action");
-
+        boolean rechercherapide = false;
         if (action.equals("rechercherAppartement")) {
             
             VUE = "/WEB-INF/displayDetailsBienALouer.jsp";
@@ -55,26 +57,39 @@ public class Recherche extends HttpServlet {
             int id2 = parseInt(request.getParameter("id2"));
             List<Bienimmobilier> listDetail = BienImmobilierDAO.simpleBienimmobilier(id1,id2);
             session.setAttribute("listDetail", listDetail);
-            //HibernateUtil.getSessionFactory().close();
     
-        } else if (action.equals("rechercheMaison")) {
+        } if (action.equals("rechercheMaison")) {
             VUE = "/WEB-INF/displayDetailsBienAVendre.jsp";
 
-        } else if (action.equals("RechercheRapide")) {
+        } if (action.equals("rechercheRapide")) {
+            
+            response.setContentType("text/html;charset=UTF-8"); 
+            String cle = request.getParameter("id");
+            String s = "{\"listbien\":[";
+            List <Bienimmobilier> listRes = BienImmobilierDAO.allBienImmobiliers();
+           
+            for(int i=0; i <listRes.size(); i++){
 
-            VUE = "/WEB-INF/displayListAll.jsp";
-        
-        } else if (action.equals("visite")) {
+            s += listRes.get(i).toString();
+            }
+            s += " null]}";
+            PrintWriter out = response.getWriter();
+            out.print(s);
+            rechercherapide = true;  
+            
+        } if (action.equals("visite")) {
+            
             VUE = "/WEB-INF/displayListRDV.jsp";
             
             int idBien = parseInt(request.getParameter("bien"));
             List<Visite> listRDV = VisiteDAO.simpleVisite(idBien);
             session.setAttribute("listRDV", listRDV);
-
         } 
+        if(rechercherapide==false){
             ServletContext sc = getServletContext();
             RequestDispatcher rd = sc.getRequestDispatcher(VUE);
             rd.forward(request, response);
+        }
     }
 
 

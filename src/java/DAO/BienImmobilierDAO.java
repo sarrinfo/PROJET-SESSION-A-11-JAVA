@@ -52,7 +52,7 @@ public class BienImmobilierDAO {
         session = HibernateUtil.getSessionFactory().openSession();
         Query query = session.createQuery("from Bienimmobilier ");
         List<Bienimmobilier> results = query.list();
-
+//        session.close();
         return results;
         }
      
@@ -86,7 +86,7 @@ public class BienImmobilierDAO {
     public static List motRechercher(String mot) {
         session = HibernateUtil.getSessionFactory().openSession();
         Query query = session.createQuery("from Bienimmobilier "
-                + "where Type_Bienimmobilier LIKE :mt ");
+                + "where Type_BIENIMMOBILIER LIKE :mt ");
         query.setParameter("mt", mot);
         List<Bienimmobilier> results = query.list();
 

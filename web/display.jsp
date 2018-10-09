@@ -109,26 +109,8 @@
                 <a class="carousel-control-next" href="#demo" data-slide="next">
                     <span class="carousel-control-next-icon"></span>
                 </a>      
-                <div id="recherche" class="carousel-caption" >
-
-                    <form name="autofillform" action="Recherche">
-                        <table border="0" cellpadding="5"> 
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <input type="text" size="80" placeholder="Rechercher par : Ville, region, secteur, rue" id="iRecherche" onkeyup="doSearch()">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td id="auto-row" colspan="2">
-                                        <table id="iResultat" class="popupBox" />
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </form>
-                </div>
+              
             </div>
-        </div > 
+        </div >
     </body>
 </html>

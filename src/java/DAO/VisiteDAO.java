@@ -102,7 +102,7 @@ public class VisiteDAO {
         }
         public static Visite simpleVisite(Date dateVisite) {
         session = HibernateUtil.getSessionFactory().openSession();
-        Query query = session.createQuery("from Visite where dateVisite = :date ");
+        Query query = session.createQuery("from Visite where datevisite = :date ");
         query.setParameter("date", dateVisite);
         Visite results = (Visite)query.uniqueResult();
 

@@ -103,24 +103,21 @@ public class Connexion extends HttpServlet {
         if ( form.getErreurs().isEmpty() && form.getVALIDE_PWD() ) {
 
             session.setAttribute( ATT_SESSION_USER, utilisateur );
+            
+            /* Stockage du formulaire et du bean dans l'objet request */
+            request.setAttribute( ATT_FORM, form );
+            request.setAttribute( ATT_USER, utilisateur );
             VUE = "/WEB-INF/bienvenue.jsp";
+            RequestDispatcher disp = request.getRequestDispatcher(VUE);
+            disp.forward(request, response);
 
         } else {
 
-            session.setAttribute( ATT_SESSION_USER, null );
+            session.setAttribute( ATT_SESSION_USER, "" );
+            response.sendRedirect(request.getContextPath()+VUE);
 
         }
-
-
-        /* Stockage du formulaire et du bean dans l'objet request */
-
-        request.setAttribute( ATT_FORM, form );
-
-        request.setAttribute( ATT_USER, utilisateur );
-
-         RequestDispatcher disp = request.getRequestDispatcher(VUE);
-         disp.forward(request, response);
-       
+ 
     }
 
     /**

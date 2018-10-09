@@ -27,17 +27,22 @@ import Modele.BienimmobilierId;
 import Modele.Annonce;
 import Modele.Client;
 import Modele.Employe;
+import Modele.GestionnaireVisite;
 import Modele.Image;
 import Modele.ImageId;
 import Modele.Immeuble;
 import Modele.Utilisateur;
 import Modele.UtilisateurId;
 import Modele.Visite;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+
 
 /**
  *
@@ -134,10 +139,10 @@ public class Test {
 //        EmployeDAO.insert(emp);
 
 
-        Date date1 = new Date("2018/10/20 09:00");
-        Date date2 = new Date("2018/10/20 10:00");
-        Date date3 = new Date("2018/10/20 12:00");
-        Date date4 = new Date("2018/10/31 15:00");
+        Date date1 = new Date("2018/10/10 09:00");
+        Date date2 = new Date("2018/10/12 10:00");
+        Date date3 = new Date("2018/10/15 12:00");
+        Date date4 = new Date("2018/10/25 15:00");
         Date date5 = new Date("2018/10/31 17:00");
         Calendar cal1 = Calendar.getInstance();
         cal1.setTime(date1);
@@ -156,11 +161,11 @@ public class Test {
 //        VisiteDAO.insert(visite3);
 //        VisiteDAO.insert(visite4);
         
-        date1 = new Date("2018/10/23 09:00");
-        date2 = new Date("2018/10/23 10:00");
-        date3 = new Date("2018/10/24 12:00");
-        date4 = new Date("2018/10/24 15:00");
-        date5 = new Date("2018/10/06 17:00");
+        date1 = new Date("2018/11/13 09:00");
+        date2 = new Date("2018/11/22 10:00");
+        date3 = new Date("2018/11/07 12:00");
+        date4 = new Date("2018/11/08 15:00");
+        date5 = new Date("2018/11/06 17:00");
         cal1 = Calendar.getInstance();
         cal1.setTime(date1);
         cal1.setTime(date2);
@@ -184,16 +189,20 @@ public class Test {
 //       VisiteDAO.update(visite, client);
 
 
-       Utilisateur user = new Utilisateur(new UtilisateurId("SARR","sarrinfo@yahoo.fr"), "123456789");
-//       UtilisateurDAO.insert(user);
-
-        
-        
-        
-        
-        
-        
-        
+//       Utilisateur user = new Utilisateur(new UtilisateurId("SARR","sarrinfo@yahoo.fr"), "123456789");
+////       UtilisateurDAO.insert(user);
+//        GsonBuilder builder = new GsonBuilder();
+//        Gson gson = builder.create();
+//       
+//        String s = "[ ";
+//        List <Bienimmobilier> bien7 = BienImmobilierDAO.allBienImmobiliers();
+//        for(int i=0; i <bien7.size(); i++){
+//
+//            s += bien7.get(i).toString();
+//        }
+//        s += " null ]";
+//        System.out.print(gson.toJson(bien7.toString()));
+//        
         
         
         
@@ -216,7 +225,36 @@ public class Test {
 //        String dateInString = "31-02-2017";
 //        date = dateFormat.parse(dateInString);
 //        System.out.println("dernier " + date);
+
+GestionnaireVisite ges = new GestionnaireVisite();
+String date10 = "2018-10-20 09:00";
+Date date50 = ges.formaterDate(date10);
+ges.gererListVisite(date50);
+//visite = VisiteDAO.simpleVisite(date50);
+//     System.out.println("Visite "+ges.rechercherVisite(visite));
+String date11 = "2018-10-12 10:00";
+Date date51 = ges.formaterDate(date11);
+ges.gererListVisite(date51);
+
+
+//ges.ajouterVisite(visite);
+//ges.ajouterVisite(visite1);
+//ges.ajouterVisite(visite2);
+//
+//System.out.println(ges.rechercherVisite(visite));
+           
+
+//           System.out.println(vis.toString());
+       
         
         HibernateUtil.getSessionFactory().close();
+    
     }
+//     public static boolean rechercherVisite(Visite visite, Visite visite2) {
+//        boolean existe = false;
+//        if(visite.getDatevisite().compareTo(visite2.getDatevisite())==0){
+//            existe = true;
+//        }
+//        return existe;
+//    }
 }
