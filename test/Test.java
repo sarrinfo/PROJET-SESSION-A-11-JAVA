@@ -138,6 +138,49 @@ public class Test {
         Employe emp = new Employe("MB001", "Mathieu", "Baudin");
 //        EmployeDAO.insert(emp);
 
+        date = new Date("2018/07/10");
+        cal = Calendar.getInstance();
+        cal.setTime(date);
+        ann = new Annonce(10002,bien1, "4 1/2 pres station Cote vertu"
+                + "",4,1,400,date,"chauffage inclus, frigo et poele","internet"," "
+                        + "proche du metro station Cote vertu"," Parking gratuit");
+        
+//        AnnonceDAO.insert(ann);
+       
+        emp = new Employe("CK002", "CESAR", "KOUASSI");
+//        EmployeDAO.insert(emp);
+
+        date = new Date("2018/10/25");
+        cal = Calendar.getInstance();
+        cal.setTime(date);
+        ann = new Annonce(10003,bien2, "3 1/2 proche du centre commercial"
+                + "",4,1,400,date,"chauffage inclus, frigo et poele","internet tres haut debit"," "
+                        + "proche du metro tout commerce"," Parking disponible");
+        
+//        AnnonceDAO.insert(ann);
+       
+        emp = new Employe("IS003", "SARR", "IBRAHIMA");
+//        EmployeDAO.insert(emp);
+
+        date = new Date("2018/01/30");
+        cal = Calendar.getInstance();
+        cal.setTime(date);
+        ann = new Annonce(10004,bien3, "4 1/2 proche du parc Angrignon"
+                + "",4,2,00,date,"chauffage inclus, frigo et poele","internet inclus"," "
+                        + "proche du parc Angrignon"," Parking disponible");
+        
+//        AnnonceDAO.insert(ann);
+       
+        emp = new Employe("AM004", "SOW", "AMADOU");
+//        EmployeDAO.insert(emp);
+
+
+
+
+
+
+
+
 
         Date date1 = new Date("2018/10/10 09:00");
         Date date2 = new Date("2018/10/12 10:00");
@@ -183,6 +226,29 @@ public class Test {
 //        VisiteDAO.insert(visite2);
 //        VisiteDAO.insert(visite3);
 //        VisiteDAO.insert(visite4);
+
+        date1 = new Date("2018/09/13 09:00");
+        date2 = new Date("2018/03/22 10:00");
+        date3 = new Date("2018/04/07 12:00");
+        date4 = new Date("2018/07/08 15:00");
+        date5 = new Date("2018/03/06 17:00");
+        cal1 = Calendar.getInstance();
+        cal1.setTime(date1);
+        cal1.setTime(date2);
+        cal1.setTime(date3);
+        cal1.setTime(date4);
+        cal1.setTime(date5);
+        visite = new Visite(date1, emp, bien2);
+        visite1 = new Visite(date2, emp, bien2);
+        visite2 = new Visite(date3, emp, bien2);
+        visite3 = new Visite(date4, emp, bien3);
+        visite4 = new Visite(date5, emp, bien3);
+//
+        VisiteDAO.insert(visite);
+        VisiteDAO.insert(visite1);
+        VisiteDAO.insert(visite2);
+        VisiteDAO.insert(visite3);
+        VisiteDAO.insert(visite4);
         
        Client client = new Client("CK0001","CESAR","KOUASSI","4388252933","KCESAR@hotmail.com"); 
 //       ClientDAO.insert(client);
@@ -226,15 +292,15 @@ public class Test {
 //        date = dateFormat.parse(dateInString);
 //        System.out.println("dernier " + date);
 
-GestionnaireVisite ges = new GestionnaireVisite();
-String date10 = "2018-10-20 09:00";
-Date date50 = ges.formaterDate(date10);
-ges.gererListVisite(date50);
-//visite = VisiteDAO.simpleVisite(date50);
-//     System.out.println("Visite "+ges.rechercherVisite(visite));
-String date11 = "2018-10-12 10:00";
-Date date51 = ges.formaterDate(date11);
-ges.gererListVisite(date51);
+//GestionnaireVisite ges = new GestionnaireVisite();
+//String date10 = "2018-10-20 09:00";
+//Date date50 = ges.formaterDate(date10);
+//ges.gererListVisite(date50);
+////visite = VisiteDAO.simpleVisite(date50);
+////     System.out.println("Visite "+ges.rechercherVisite(visite));
+//String date11 = "2018-10-12 10:00";
+//Date date51 = ges.formaterDate(date11);
+//ges.gererListVisite(date51);
 
 
 //ges.ajouterVisite(visite);

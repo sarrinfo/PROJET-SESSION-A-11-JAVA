@@ -6,14 +6,17 @@
 package Controleur;
 
 
+import DAO.AnnonceDAO;
 import DAO.BienImmobilierDAO;
 import DAO.HibernateUtil;
 import DAO.ImmeubleDAO;
+import Modele.Annonce;
 import Modele.Bienimmobilier;
 import Modele.Immeuble;
 import java.io.IOException;
 
 import java.util.List;
+import java.util.Locale;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -43,8 +46,13 @@ public class ControleurPrincipale extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        
+        Locale localeReq = request.getLocale();
+        
         //on récupère la session de la requête
         HttpSession session = request.getSession();
+        session.setAttribute("langue", localeReq.getLanguage());
+
         if (session == null) {
             response.sendRedirect(VUE);
         }
@@ -57,7 +65,8 @@ public class ControleurPrincipale extends HttpServlet {
     
         } else if (action.equals("appartement")) {
             VUE = "/WEB-INF/displayListALouer.jsp";
-            List<Bienimmobilier> listApp = BienImmobilierDAO.allBienImmobiliers();
+           // List<Bienimmobilier> listApp = BienImmobilierDAO.allBienImmobiliers();
+            List<Annonce> listApp = AnnonceDAO.allAnnonces();
             session.setAttribute("listApp", listApp);
 //            HibernateUtil.getSessionFactory().close();
 

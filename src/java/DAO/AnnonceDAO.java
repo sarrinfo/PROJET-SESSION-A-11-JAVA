@@ -45,4 +45,11 @@ public class AnnonceDAO {
 
         return results;
         }
+     public static List allAnnoncesAppartement() {
+        session = HibernateUtil.getSessionFactory().openSession();
+        Query query = session.createQuery("from Annonce A join A.bienimmobilier B where B.typeBienimmobilier like Appart");
+        List<Annonce> results = query.list();
+
+        return results;
+        }
 }

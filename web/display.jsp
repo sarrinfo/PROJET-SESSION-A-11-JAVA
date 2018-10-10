@@ -6,7 +6,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<jsp:include page="WEB-INF/jspf/navBar.jspf"></jsp:include>
+<%--<jsp:include page="WEB-INF/jspf/navBar.jspf"></jsp:include>--%>
+<jsp:include page="WEB-INF/nav.jsp"></jsp:include>
 <!DOCTYPE html>
 <html>
     <head>

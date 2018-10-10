@@ -121,7 +121,7 @@ public class Annonce  implements java.io.Serializable {
     }
 
     public String toString (){
-        return "Annonce [titre=" +this.titre+", particularite=" +this.particularite+"]";
+        return this.titre;
     }
 
 

@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<jsp:include page="jspf/navBar.jspf"></jsp:include>
+<jsp:include page="nav.jsp"></jsp:include>
     <!DOCTYPE html>
     <html>
         <head>
