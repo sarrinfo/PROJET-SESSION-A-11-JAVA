@@ -107,7 +107,7 @@ public class Connexion extends HttpServlet {
             /* Stockage du formulaire et du bean dans l'objet request */
             request.setAttribute( ATT_FORM, form );
             request.setAttribute( ATT_USER, utilisateur );
-            VUE = "/WEB-INF/bienvenue.jsp";
+            VUE = "/display.jsp";
             RequestDispatcher disp = request.getRequestDispatcher(VUE);
             disp.forward(request, response);
 
