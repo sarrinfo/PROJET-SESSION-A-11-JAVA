@@ -61,23 +61,7 @@ public class Recherche extends HttpServlet {
         } if (action.equals("rechercheMaison")) {
             VUE = "/WEB-INF/displayDetailsBienAVendre.jsp";
 
-        } if (action.equals("rechercheRapide")) {
-            
-            response.setContentType("text/html;charset=UTF-8"); 
-            String cle = request.getParameter("id");
-            String s = "{\"listbien\":[";
-            List <Bienimmobilier> listRes = BienImmobilierDAO.allBienImmobiliers();
-           
-            for(int i=0; i <listRes.size(); i++){
-
-            s += listRes.get(i).toString();
-            }
-            s += " null]}";
-            PrintWriter out = response.getWriter();
-            out.print(s);
-            rechercherapide = true;  
-            
-        } if (action.equals("visite")) {
+        }  if (action.equals("visite")) {
             
             VUE = "/WEB-INF/displayListRDV.jsp";
             
