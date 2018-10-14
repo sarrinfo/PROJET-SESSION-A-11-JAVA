@@ -7,6 +7,8 @@ package DAO;
 
 
 import Modele.Annonce;
+import java.util.List;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -36,4 +38,18 @@ public class AnnonceDAO {
         tx.commit();
         session.close();
     }
+    public static List allAnnonces() {
+        session = HibernateUtil.getSessionFactory().openSession();
+        Query query = session.createQuery("from Annonce ");
+        List<Annonce> results = query.list();
+
+        return results;
+        }
+     public static List allAnnoncesAppartement() {
+        session = HibernateUtil.getSessionFactory().openSession();
+        Query query = session.createQuery("from Annonce A join A.bienimmobilier B where B.typeBienimmobilier like Appart");
+        List<Annonce> results = query.list();
+
+        return results;
+        }
 }

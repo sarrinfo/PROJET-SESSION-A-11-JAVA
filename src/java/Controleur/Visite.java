@@ -6,12 +6,11 @@
 package Controleur;
 
 import Modele.GestionnaireVisite;
+import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -28,7 +27,7 @@ import javax.servlet.http.HttpSession;
  */
 public class Visite extends HttpServlet {
 
-    public static String URL = "";
+    public static String URL = "/Error.jsp";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -42,55 +41,45 @@ public class Visite extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+     try{
         //on récupère la session de la requête
         HttpSession session = request.getSession();
+        GestionnaireVisite ges = new GestionnaireVisite();
         if (session == null) {
-            response.sendRedirect("http://localhost:82/error.html");
+            response.sendRedirect(request.getContextPath() + URL);
         }
 
         String action = request.getParameter("action");
-        String messages ="";
-        GestionnaireVisite gestionnaireVisite = new GestionnaireVisite();
         String dateVisite = request.getParameter("dateVisite");
-        Date date;
 
-        try {
-            date = gestionnaireVisite.formaterDate(dateVisite);
-
-            if (!action.equals("terminer")) {
-
-                if (action.equals("annuler")) 
-                {
-                    gestionnaireVisite.annulerVisite(date);
-                    messages = "Rendez vous du "+date+" est annuler ";
-                    request.setAttribute("message", messages);
-
-                } 
-                else if (action.equals("ajouter")) 
-                {
-                    gestionnaireVisite.gererListVisite(date);
-                    messages = "Rendez vous confirmer le "+date;
-                    request.setAttribute("message", messages);
-                }
-                
-                URL = "/compteClient.jsp"; 
-                session.setAttribute("listVisite", gestionnaireVisite.getListVisite());
-                
-            } else if (action.equals("terminer")) {
-                URL = "/Bienvenue.jsp";  
-            }
-        }catch (Exception e) {
-            URL = "/error.jsp";
-            request.setAttribute("Erreur",e.getStackTrace());
-        }
-        finally
+        if (action.equals("Ajouter")) 
         {
-            
-            ServletContext sc = getServletContext();
-            RequestDispatcher rd = sc.getRequestDispatcher(URL);
-            rd.forward(request, response);
+            URL = "/WEB-INF/displayListRDV.jsp";
+            Date date = ges.formaterDate(dateVisite);
+            ges.gererListVisite(date);
+            session.setAttribute("ListVisite", ges.getListVisite());
+        } 
+        if(action.equals("supprimer"))
+        {
+            int index = Integer.parseInt(request.getParameter("index"));
+            ges.supprimerVisite(index);
+            URL = "/WEB-INF/displayListRDV.jsp";
         }
-      
+        if(action.equals("terminer"))
+        {
+            URL = "/display.jsp";
+        }
+        RequestDispatcher disp = request.getServletContext().getRequestDispatcher(URL);
+        disp.forward(request, response);
+        
+        }
+        catch(Exception ex)
+        {
+            request.setAttribute("erreur", ex.getMessage());
+            RequestDispatcher disp = request.getServletContext().getRequestDispatcher(URL);
+            disp.forward(request, response);
+        }
+
     }
 
 // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

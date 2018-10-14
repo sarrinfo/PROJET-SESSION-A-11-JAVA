@@ -1,4 +1,5 @@
 package Modele;
+import com.google.gson.annotations.SerializedName;
 // Generated 2018-09-14 01:24:50 by Hibernate Tools 4.3.1
 
 
@@ -34,7 +35,9 @@ public class BienimmobilierId  implements java.io.Serializable {
     public void setImmeubleid(String immeubleid) {
         this.immeubleid = immeubleid;
     }
-
+    public String toString (){
+        return "BienimmobilierId [bienid=" +this.bienid+", immeubleid=" +this.immeubleid+"]";
+    }
 
    public boolean equals(Object other) {
          if ( (this == other ) ) return true;

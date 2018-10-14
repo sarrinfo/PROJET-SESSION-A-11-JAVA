@@ -10,29 +10,39 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author SARRINFO
  */
 public class GestionnaireVisite {
-     private static ArrayList<Visite> ListVisite = null;
+
+    private static ArrayList<Visite> ListVisite = new ArrayList();
 
     public GestionnaireVisite() {
-   
+
     }
 
     public void gererListVisite(Date dateVisite) {
-
+        Visite visite = VisiteDAO.simpleVisite(dateVisite);
         if (ListVisite == null) {
             ListVisite = new ArrayList();
+            ajouterVisite(visite);
         }
-            Visite visite = VisiteDAO.simpleVisite(dateVisite);
-            boolean existe = rechercherVisite(dateVisite);
-            
-            if(!existe){
-            ListVisite.add(visite);
-            }
+        ajouterVisite(visite);
+        boolean existe = false;
+
+        existe = rechercherVisite(visite);
+
+        if (existe == false) {
+            ajouterVisite(visite);
+        }
+    }
+
+    public void ajouterVisite(Visite visite) {
+        ListVisite.add(visite);
     }
 
     public ArrayList getListVisite() {
@@ -40,41 +50,40 @@ public class GestionnaireVisite {
     }
 
     //Recherche un visite s'il est deja dans le ListVisite
-    public boolean rechercherVisite(Date  dateVisite) {
+    public boolean rechercherVisite(Visite visite) {
         boolean existe = false;
-        int i = 0;
-        for (i = 0; i < ListVisite.size(); i++);
-        {
-            Visite vis = ListVisite.get(i);
-            if(vis.getDatevisite() == dateVisite){
-              existe = true; 
+        Date dateVisite2 = null;
+        ArrayList <Visite> list = new ArrayList();
+                list = getListVisite() ;
+        for (Visite v : list) {
+            dateVisite2 = v.getDatevisite();
+            if (dateVisite2.compareTo(visite.getDatevisite()) == 0) {
+                existe = true;
+                break;
             }
         }
         return existe;
     }
 
-    public Date formaterDate(String dateVisite) 
-            throws ParseException
-    {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-        Date date = dateFormat.parse(dateVisite);
+    public Date formaterDate(String dateVisite) {
+        Date date = null;
+        try {
+
+            date = new SimpleDateFormat("yyyy-MM-dd hh:mm").parse(dateVisite);
+        } catch (ParseException ex) {
+            Logger.getLogger(GestionnaireVisite.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         return date;
     }
-    
-    public void annulerVisite(Date dateVisite) {
-        int i = 0;
-        Visite vis;
-        for (i = 0; i < ListVisite.size(); i++);
-        {
-            vis = ListVisite.get(i);
-            if(vis.getDatevisite() == dateVisite){
-              ListVisite.remove(vis); 
-            }
-        }
+
+    public void supprimerVisite(int index) {
+        ListVisite.remove(index);
     }
+
     public void updateVisite(Client client) {
         int i = 0;
-        Visite vis ;
+        Visite vis;
         for (i = 0; i < ListVisite.size(); i++);
         {
             vis = ListVisite.get(i);
@@ -82,4 +91,3 @@ public class GestionnaireVisite {
         }
     }
 }
-

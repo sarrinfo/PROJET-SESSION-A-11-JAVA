@@ -27,17 +27,22 @@ import Modele.BienimmobilierId;
 import Modele.Annonce;
 import Modele.Client;
 import Modele.Employe;
+import Modele.GestionnaireVisite;
 import Modele.Image;
 import Modele.ImageId;
 import Modele.Immeuble;
 import Modele.Utilisateur;
 import Modele.UtilisateurId;
 import Modele.Visite;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+
 
 /**
  *
@@ -133,11 +138,54 @@ public class Test {
         Employe emp = new Employe("MB001", "Mathieu", "Baudin");
 //        EmployeDAO.insert(emp);
 
+        date = new Date("2018/07/10");
+        cal = Calendar.getInstance();
+        cal.setTime(date);
+        ann = new Annonce(10002,bien1, "4 1/2 pres station Cote vertu"
+                + "",4,1,400,date,"chauffage inclus, frigo et poele","internet"," "
+                        + "proche du metro station Cote vertu"," Parking gratuit");
+        
+//        AnnonceDAO.insert(ann);
+       
+        emp = new Employe("CK002", "CESAR", "KOUASSI");
+//        EmployeDAO.insert(emp);
 
-        Date date1 = new Date("2018/10/20 09:00");
-        Date date2 = new Date("2018/10/20 10:00");
-        Date date3 = new Date("2018/10/20 12:00");
-        Date date4 = new Date("2018/10/31 15:00");
+        date = new Date("2018/10/25");
+        cal = Calendar.getInstance();
+        cal.setTime(date);
+        ann = new Annonce(10003,bien2, "3 1/2 proche du centre commercial"
+                + "",4,1,400,date,"chauffage inclus, frigo et poele","internet tres haut debit"," "
+                        + "proche du metro tout commerce"," Parking disponible");
+        
+//        AnnonceDAO.insert(ann);
+       
+        emp = new Employe("IS003", "SARR", "IBRAHIMA");
+//        EmployeDAO.insert(emp);
+
+        date = new Date("2018/01/30");
+        cal = Calendar.getInstance();
+        cal.setTime(date);
+        ann = new Annonce(10004,bien3, "4 1/2 proche du parc Angrignon"
+                + "",4,2,00,date,"chauffage inclus, frigo et poele","internet inclus"," "
+                        + "proche du parc Angrignon"," Parking disponible");
+        
+//        AnnonceDAO.insert(ann);
+       
+        emp = new Employe("AM004", "SOW", "AMADOU");
+//        EmployeDAO.insert(emp);
+
+
+
+
+
+
+
+
+
+        Date date1 = new Date("2018/10/10 09:00");
+        Date date2 = new Date("2018/10/12 10:00");
+        Date date3 = new Date("2018/10/15 12:00");
+        Date date4 = new Date("2018/10/25 15:00");
         Date date5 = new Date("2018/10/31 17:00");
         Calendar cal1 = Calendar.getInstance();
         cal1.setTime(date1);
@@ -156,11 +204,11 @@ public class Test {
 //        VisiteDAO.insert(visite3);
 //        VisiteDAO.insert(visite4);
         
-        date1 = new Date("2018/10/23 09:00");
-        date2 = new Date("2018/10/23 10:00");
-        date3 = new Date("2018/10/24 12:00");
-        date4 = new Date("2018/10/24 15:00");
-        date5 = new Date("2018/10/06 17:00");
+        date1 = new Date("2018/11/13 09:00");
+        date2 = new Date("2018/11/22 10:00");
+        date3 = new Date("2018/11/07 12:00");
+        date4 = new Date("2018/11/08 15:00");
+        date5 = new Date("2018/11/06 17:00");
         cal1 = Calendar.getInstance();
         cal1.setTime(date1);
         cal1.setTime(date2);
@@ -178,22 +226,49 @@ public class Test {
 //        VisiteDAO.insert(visite2);
 //        VisiteDAO.insert(visite3);
 //        VisiteDAO.insert(visite4);
+
+        date1 = new Date("2018/09/13 09:00");
+        date2 = new Date("2018/03/22 10:00");
+        date3 = new Date("2018/04/07 12:00");
+        date4 = new Date("2018/07/08 15:00");
+        date5 = new Date("2018/03/06 17:00");
+        cal1 = Calendar.getInstance();
+        cal1.setTime(date1);
+        cal1.setTime(date2);
+        cal1.setTime(date3);
+        cal1.setTime(date4);
+        cal1.setTime(date5);
+        visite = new Visite(date1, emp, bien2);
+        visite1 = new Visite(date2, emp, bien2);
+        visite2 = new Visite(date3, emp, bien2);
+        visite3 = new Visite(date4, emp, bien3);
+        visite4 = new Visite(date5, emp, bien3);
+//
+        VisiteDAO.insert(visite);
+        VisiteDAO.insert(visite1);
+        VisiteDAO.insert(visite2);
+        VisiteDAO.insert(visite3);
+        VisiteDAO.insert(visite4);
         
        Client client = new Client("CK0001","CESAR","KOUASSI","4388252933","KCESAR@hotmail.com"); 
 //       ClientDAO.insert(client);
 //       VisiteDAO.update(visite, client);
 
 
-       Utilisateur user = new Utilisateur(new UtilisateurId("SARR","sarrinfo@yahoo.fr"), "123456789");
-//       UtilisateurDAO.insert(user);
-
-        
-        
-        
-        
-        
-        
-        
+//       Utilisateur user = new Utilisateur(new UtilisateurId("SARR","sarrinfo@yahoo.fr"), "123456789");
+////       UtilisateurDAO.insert(user);
+//        GsonBuilder builder = new GsonBuilder();
+//        Gson gson = builder.create();
+//       
+//        String s = "[ ";
+//        List <Bienimmobilier> bien7 = BienImmobilierDAO.allBienImmobiliers();
+//        for(int i=0; i <bien7.size(); i++){
+//
+//            s += bien7.get(i).toString();
+//        }
+//        s += " null ]";
+//        System.out.print(gson.toJson(bien7.toString()));
+//        
         
         
         
@@ -216,7 +291,36 @@ public class Test {
 //        String dateInString = "31-02-2017";
 //        date = dateFormat.parse(dateInString);
 //        System.out.println("dernier " + date);
+
+//GestionnaireVisite ges = new GestionnaireVisite();
+//String date10 = "2018-10-20 09:00";
+//Date date50 = ges.formaterDate(date10);
+//ges.gererListVisite(date50);
+////visite = VisiteDAO.simpleVisite(date50);
+////     System.out.println("Visite "+ges.rechercherVisite(visite));
+//String date11 = "2018-10-12 10:00";
+//Date date51 = ges.formaterDate(date11);
+//ges.gererListVisite(date51);
+
+
+//ges.ajouterVisite(visite);
+//ges.ajouterVisite(visite1);
+//ges.ajouterVisite(visite2);
+//
+//System.out.println(ges.rechercherVisite(visite));
+           
+
+//           System.out.println(vis.toString());
+       
         
         HibernateUtil.getSessionFactory().close();
+    
     }
+//     public static boolean rechercherVisite(Visite visite, Visite visite2) {
+//        boolean existe = false;
+//        if(visite.getDatevisite().compareTo(visite2.getDatevisite())==0){
+//            existe = true;
+//        }
+//        return existe;
+//    }
 }

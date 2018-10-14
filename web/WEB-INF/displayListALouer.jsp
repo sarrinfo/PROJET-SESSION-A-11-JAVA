@@ -6,7 +6,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<jsp:include page="jspf/navBar.jspf"></jsp:include>
+<jsp:include page="nav.jsp"></jsp:include>
     <!DOCTYPE html>
     <html>
         <head>
@@ -26,27 +26,27 @@
                 <div class="form-control btn-outline-primary">
                     <div class="row ">
                         <div class="col-sm-3">
-                            <a href="Recherche?action=rechercherAppartement&id1=${list.current.getId().getImmeubleid()}&id2=${list.current.getId().getBienid()}">
+                            <a href="Recherche?action=rechercherAppartement&id1=${list.current.getBienimmobilier().getId().getImmeubleid()}&id2=${list.current.getBienimmobilier().getId().getBienid()}">
                                 <img style="width: 250px; height: 175px" src="images/image${list.index}.jpg" alt=""/>
                             </a>
                         </div>
                         <div class="col-sm-9">
                             <div class="row">
                                 <div class="col-sm-10">
-                                    <p>afficher le titre de l'annonce</p>
-                                    <p>le type de biens</p>
+                                    <p>${list.current.getTitre()}</p>
+                                    <p>${list.current.getBienimmobilier().getTypeBienimmobilier()}</p>
                                 </div>
                                 <div class="col-sm-2">
-                                    <p>${list.current.getPrixLoyer()}</p>
+                                      <p>${list.current.getBienimmobilier().getPrixLoyer()}</p>
                                 </div>  
                             </div>
                             <div class="row">
-                                <div class="col-sm-10">
-                                    <p>afficher la description</p>
-                                    <p>afficher la particularite</p>
+                                <div class="col-sm-10">     
+                                    <p>${list.current.getInclusion()}</p>
+                                    <p>${list.current.getParticularite()}</p>
                                 </div>
                                 <div class="col-sm-2">
-                                    <p>sdb</p>
+                                    <p>sdb : ${list.current.getNombresdb()}</p>
                                 </div> 
 
                             </div>
