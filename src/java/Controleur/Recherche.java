@@ -63,11 +63,10 @@ public class Recherche extends HttpServlet {
 
         }  if (action.equals("visite")) {
             
-            VUE = "/WEB-INF/displayListRDV.jsp";
-            
             int idBien = parseInt(request.getParameter("bien"));
             List<Visite> listRDV = VisiteDAO.simpleVisite(idBien);
             session.setAttribute("listRDV", listRDV);
+            VUE = "/WEB-INF/Restreint/displayListRDV.jsp";
         } 
         if(rechercherapide==false){
             ServletContext sc = getServletContext();

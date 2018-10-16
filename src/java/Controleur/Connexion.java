@@ -5,6 +5,7 @@
  */
 package Controleur;
 
+import static Controleur.Visite.URL;
 import Modele.ConnexionForm;
 import Modele.Utilisateur;
 import java.io.IOException;
@@ -28,7 +29,7 @@ public class Connexion extends HttpServlet {
 
     public static final String ATT_SESSION_USER = "sessionUtilisateur";
 
-    public static String VUE              = "/WEB-INF/connexion.jsp";
+    public static String ACCES_CONNEXION    = "/WEB-INF/connexion.jsp";
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -40,7 +41,7 @@ public class Connexion extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-     
+//        response.setContentType("text/html;charset=UTF-8");
 
     }
 
@@ -58,8 +59,9 @@ public class Connexion extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        //response.setContentType("text/html;charset=UTF-8");
 //        processRequest(request, response);
-        this.getServletContext().getRequestDispatcher(VUE).forward(request, response);
+        this.getServletContext().getRequestDispatcher(ACCES_CONNEXION).forward(request, response);
     }
 
     /**
@@ -73,6 +75,7 @@ public class Connexion extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+//        response.setContentType("text/html;charset=UTF-8");
          /* Affichage de la page de connexion */
 
 //        this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
@@ -100,21 +103,21 @@ public class Connexion extends HttpServlet {
 
          */
 
-        if ( form.getErreurs().isEmpty() && form.getVALIDE_PWD() ) {
+        if (form.getErreurs().isEmpty() && form.getVALIDE_PWD() ) {
 
             session.setAttribute( ATT_SESSION_USER, utilisateur );
             
             /* Stockage du formulaire et du bean dans l'objet request */
             request.setAttribute( ATT_FORM, form );
             request.setAttribute( ATT_USER, utilisateur );
-            VUE = "/display.jsp";
-            RequestDispatcher disp = request.getRequestDispatcher(VUE);
+            URL = "/WEB-INF/Restreint/displayListRDV.jsp";
+            RequestDispatcher disp = request.getRequestDispatcher(URL);
             disp.forward(request, response);
 
         } else {
 
-            session.setAttribute( ATT_SESSION_USER, "" );
-            response.sendRedirect(request.getContextPath()+VUE);
+            session.setAttribute( ATT_SESSION_USER, null );
+            response.sendRedirect(request.getContextPath()+ACCES_CONNEXION);
 
         }
  

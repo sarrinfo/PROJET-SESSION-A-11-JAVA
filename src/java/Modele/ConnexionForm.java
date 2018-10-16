@@ -59,20 +59,23 @@ public final class ConnexionForm {
 
         /* Initialisation du résultat global de la validation. */
         if ( erreurs.isEmpty() ) {
+     
            Utilisateur user  =UtilisateurDAO.verifyPWD(motDePasse, email);
-            if(user.getMotdepasse().equals(motDePasse) && 
-                   user.getId().getCourriel().equals(email))
-            {
-                resultat = "Connexion reussie.";
-                VALIDE_PWD = true;
-            }
-            else
-            {
-                resultat = "Identifiant ou mot de passe incorrect.";
-            }
+           if(user != null)
+           {
+                if(user.getMotdepasse().equals(motDePasse) && 
+                    user.getId().getCourriel().equals(email))
+             {
+                 utilisateur = user;
+                 resultat = "Connexion reussie.";
+                 VALIDE_PWD = true;
+             }
+               
+           }
+            
             
         } else {
-            resultat = "Échec de la connexion.";
+            resultat = "Identifiant ou mot de passe incorrect.";
         }
 
         return utilisateur;

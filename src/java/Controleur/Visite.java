@@ -54,7 +54,7 @@ public class Visite extends HttpServlet {
 
         if (action.equals("Ajouter")) 
         {
-            URL = "/WEB-INF/displayListRDV.jsp";
+            URL = "/WEB-INF/Restreint/displayListRDV.jsp";
             Date date = ges.formaterDate(dateVisite);
             ges.gererListVisite(date);
             session.setAttribute("ListVisite", ges.getListVisite());
@@ -63,7 +63,7 @@ public class Visite extends HttpServlet {
         {
             int index = Integer.parseInt(request.getParameter("index"));
             ges.supprimerVisite(index);
-            URL = "/WEB-INF/displayListRDV.jsp";
+            URL = "/WEB-INF/Restreint/displayListRDV.jsp";
         }
         if(action.equals("terminer"))
         {

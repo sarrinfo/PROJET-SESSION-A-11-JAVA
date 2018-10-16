@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee  http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
-    <context-param>
+<!--    <context-param>
         <param-name>javax.faces.PROJECT_STAGE</param-name>
         <param-value>Development</param-value>
-    </context-param>
+    </context-param>-->
+    <filter>
+        <filter-name>RestreintFilter</filter-name>
+        <filter-class>Filtre.RestreintFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>RestreintFilter</filter-name>
+        <url-pattern>/WEB-INF/Restreint/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+    </filter-mapping>
     <servlet>
         <servlet-name>Connexion</servlet-name>
         <servlet-class>Controleur.Connexion</servlet-class>
@@ -12,11 +22,11 @@
         <servlet-name>Recherche</servlet-name>
         <servlet-class>Controleur.Recherche</servlet-class>
     </servlet>
-    <servlet>
+<!--    <servlet>
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
-    </servlet>
+    </servlet>-->
     <servlet>
         <servlet-name>Visite</servlet-name>
         <servlet-class>Controleur.Visite</servlet-class>
@@ -57,10 +67,10 @@
         <servlet-name>Recherche</servlet-name>
         <url-pattern>/Recherche</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
+<!--    <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
-    </servlet-mapping>
+    </servlet-mapping>-->
     <servlet-mapping>
         <servlet-name>Visite</servlet-name>
         <url-pattern>/Visite</url-pattern>
@@ -75,7 +85,7 @@
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>faces/index.xhtml</welcome-file>
+<!--        //<welcome-file>faces/index.xhtml</welcome-file>-->
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
 </web-app>
